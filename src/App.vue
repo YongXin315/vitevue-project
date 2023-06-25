@@ -1,3 +1,14 @@
+<script setup>
+  import SignupForm from './components/SignupForm.vue'
+  import LoginForm from './components/LoginForm.vue'
+  import { auth } from'./firebase/init.js'
+  import { signOut } from 'firebase/auth'
+  import Education from './components/Education.vue'
+  import Perks from './components/Perks.vue'
+  import Eligibility from './components/Eligibility.vue'
+  import BloodType from './components/BloodType.vue'
+</script>
+
 <template>
   <div v-if="!isLoggedIn">
     <!-- login -->
@@ -8,24 +19,21 @@
     <!-- or register -->
     <template v-else>
       <signup-form @loggedIn="isLoggedIn= true"/>
-      
       <p>Already registered? <span @click="showLogin=true">Login</span> instead.</p>
     </template>
   </div>
   <!-- is logged in -->
   <div v-else>
     <h2>Welcome {{ displayName }}</h2>
+    <Education />
+    <Eligibility />
+    <Perks />
+    <BloodType />
     <button @click="logOut">Sign Out</button>
   </div>
 </template>
 
 <script>
-import SignupForm from './components/SignupForm.vue'
-import LoginForm from './components/LoginForm.vue'
-import { auth } from'./firebase/init.js'
-import { signOut } from 'firebase/auth'
-
-
 export default {
   components: { SignupForm, LoginForm },
   data() {
@@ -71,7 +79,6 @@ export default {
 
   input, button {
     height: 28px;
-
   }
 
   input {
@@ -84,7 +91,6 @@ export default {
     border:2px solid black;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    
   }
 
   p{

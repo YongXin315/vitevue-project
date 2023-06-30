@@ -4,7 +4,7 @@ import './style.css';
 import App from './App.vue';
 import FAQ from './components/Faq.vue';
 import BloodType from './components/BloodType.vue';
-import Eligibility from './components/eligibility.vue';
+import Eligibility from './components/Eligibility.vue';
 import Perks from './components/perks.vue';
 
 const router = createRouter({

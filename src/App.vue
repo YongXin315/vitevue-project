@@ -3,39 +3,42 @@
   import LoginForm from './components/LoginForm.vue'
   import { auth } from'./firebase/init.js'
   import { signOut } from 'firebase/auth'
-  import Education from './components/Education.vue'
+  import FAQ from './components/Faq.vue'
   import Perks from './components/Perks.vue'
   import Eligibility from './components/Eligibility.vue'
   import BloodType from './components/BloodType.vue'
+  import Education from './Education.vue'
+  import { RouterLink } from 'vue-router'
 </script>
 
 <template>
+  <div id="app">
+    <router-view></router-view>
+  </div>
   <div v-if="!isLoggedIn">
     <!-- login -->
     <template v-if="showLogin">
-      <login-form @loggedIn="isLoggedIn= true"/>
-      <p>No account yet? <span @click="showLogin=false">Sign Up</span> instead.</p>
+      <login-form @loggedIn="isLoggedIn= true" class="login"/>
+      <p style="text-align: center;">No account yet? <span @click="showLogin=false" style="font-weight: bold; text-decoration: underline;">Sign Up</span> instead.</p>
     </template>
     <!-- or register -->
     <template v-else>
-      <signup-form @loggedIn="isLoggedIn= true"/>
-      <p>Already registered? <span @click="showLogin=true">Login</span> instead.</p>
+      <signup-form @loggedIn="isLoggedIn= true" class="signup"/>
+      <p style="text-align:center;">Already registered? <span @click="showLogin=true" style="font-weight: bold; text-decoration: underline;">Login</span> instead.</p>
     </template>
   </div>
   <!-- is logged in -->
   <div v-else>
     <h2>Welcome {{ displayName }}</h2>
     <Education />
-    <Eligibility />
-    <Perks />
-    <BloodType />
     <button @click="logOut">Sign Out</button>
   </div>
 </template>
 
 <script>
 export default {
-  components: { SignupForm, LoginForm },
+  name: 'App',
+  components: { SignupForm, LoginForm, 'router-link': RouterLink },
   data() {
     return {
       isLoggedIn: false,
@@ -54,51 +57,12 @@ export default {
       .then(() => {
         this.isLoggedIn=false})
     }
-  }
+  },
 }
 </script>
 
 <style>
-  p, h2 {
-    text-align: center;
-  }
-
-  span {
-    text-decoration: underline;
-    cursor: pointer;
-    color: blue;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
-    max-width: 260px;
-    margin: 30px auto;
-  }
-
-  input, button {
-    height: 28px;
-  }
-
-  input {
-    padding-left: 10px;
-  }
-
-  button {
-    width: fit-content;
-    margin: auto;
-    border:2px solid black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-  }
-
-  p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-  }
-
-  span{
-    font-weight:bold;
+  #app {
+    padding: 10px;
   }
 </style>

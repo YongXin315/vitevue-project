@@ -1,90 +1,116 @@
 <template>
-    <div>
-        <div class="eli-content-container">
-        <button class="nav-button" @click="previousContent" :disabled="currentIndex === 0">&lt;</button>
-        <div class="content-eligibility" v-html="currentContent"></div>
-        <button class="nav-button" @click="nextContent" :disabled="currentIndex === contents.length - 1">&gt;</button>
-        </div>
+    <div class="eligibility">
+        <b>Blood Donation Eligibility Requirements</b>
+        <p style="font-size: small;"><b>REMEMBER!</b> Drink plenty of fluids and eat something light. It takes <b>4-8 weeks</b> to regenerate the red blood cells lost during a blood donation.</p>
+        <table class="eli-table">
+            <tr>
+                <td style="width: 50%">
+                    <img :src="imagePaths.age" alt="Age Icon">
+                    <p class="type">AGE</p>
+                    <p class="eli">18-60 years old</p>
+                    <p class="desp">*Parental consent required for 17 years old and below</p>
+                </td>
+                <td style="width: 50%">
+                    <img :src="imagePaths.alcohol" alt="Alcohol free Icon">
+                    <p class="type">MEDICINE &amp; ALCOHOL</p>
+                    <p class="eli">alcohol-free</p>
+                    <p class="desp">Avoid consuming alcohol a day before donating</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img :src="imagePaths.healthy" alt="Healthy Icon">
+                    <p class="type">HEALTHY</p>
+                    <p class="eli">physical &amp; mental</p>
+                    <p class="desp">No chronic diseases</p>
+                </td>
+                <td>
+                    <img :src="imagePaths.weight" alt="Weight Icon">
+                    <p class="type">WEIGHT</p>
+                    <p class="eli">&GT; 45kg</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img :src="imagePaths.sleep" alt="Sleep Icon">
+                    <p class="type">SUFFICIENT SLEEP</p>
+                    <p class="eli">&gt; 5 hours</p>
+                    <p class="desp">Donors must have at least five hours of sleep before donating</p>
+                </td>
+                <td>
+                    <img :src="imagePaths.malaysia" alt="Malaysia Icon">
+                    <p class="type">RESIDING IN MALAYSIA</p>
+                    <p class="eli">&gt; 1 year</p>
+                    <p class="desp">for non-Malaysians</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img :src="imagePaths.gender" alt="Gender Icon">
+                    <p class="type">HIGH-RISK ACTIVITIES</p>
+                    <p class="eli">do not engage</p>
+                    <p class="desp">Do not use drugs or engage in sexual intercourse with many partners</p>
+                </td>
+                <td>
+                    <img :src="imagePaths.woman" alt="Woman Icon">
+                    <p class="type">WOMEN</p>
+                    <p class="eli">not pregnant or during menstrual cycle</p>
+                    <p class="desp">including breastfeeding</p>
+                </td>
+            </tr>
+        </table>
     </div>
 </template>
 
 <script>
+import age from '../assets/eli-age.png';
+import alcohol from '../assets/eli-alcohol.png';
+import gender from '../assets/eli-gender.png';
+import healthy from '../assets/eli-healthy.png';
+import malaysia from '../assets/eli-malaysia.png';
+import sleep from '../assets/eli-sleep.png';
+import weight from '../assets/eli-weight.png';
+import woman from '../assets/eli-woman.png';
 export default {
-data() {
+    data() {
     return {
-    contents: [
-        "<h2>AGE</h2><h1>18-60 years old</h1><p>*Parental consent required for 17 years old and below</p>",
-        "<h2>MEDICINE &amp; ALCOHOL</h2><h1>alcohol-free</h1><p>Avoid consuming alcohol a day before donating</p>",
-        "<h2>HEALTHY</h2><h1>physical &amp; mental</h1><p>No chronic diseases</p>",
-        "<h2>WEIGHT</h2><h1>&GT; 45kg</h1>",
-        "<h2>SUFFICIENT SLEEP</h2><h1>&gt; 5 hours</h1><p>Donors must have at least five hours of sleep before donating</p>",
-        "<h2>RESIDING IN MALAYSIA</h2><h1>&gt; 1 year</h1><p>for non-Malaysians</p>",
-        "<h2>HIGH-RISK ACTIVITIES</h2><h1>do not engage</h1><p>Do not use drugs or engage in sexual intercourse with many partners</p>",
-        "<h2>WOMEN</h2><h1>not pregnant or during menstrual cycle</h1><p>including breastfeeding</p>"
-    ],
-    currentIndex: 0
+      imagePaths: {
+        age: age,
+        alcohol: alcohol,
+        gender: gender,
+        healthy: healthy,
+        malaysia: malaysia,
+        sleep: sleep,
+        weight: weight,
+        woman: woman,
+      },
     };
-},
-computed: {
-    currentContent() {
-    return this.contents[this.currentIndex];
-    }
-},
-methods: {
-    previousContent() {
-    if (this.currentIndex > 0) {
-        this.currentIndex--;
-    }
-    },
-    nextContent() {
-    if (this.currentIndex < this.contents.length - 1) {
-        this.currentIndex++;
-    }
-    }
+  }
 }
-};
 </script>
-  
+
 <style>
-.eli-content-container {
-display: flex;
-align-items: center;
+.eli-table td {
+background-color: #FFF5F5;
+border: 6px solid white;
+padding: 10px 20px;
 }
-
-.nav-button {
-border: none;
-background: none;
-font-size: 24px;
-cursor: pointer;
-padding: 5px 10px;
-}
-
-.content-eligibility {
-padding: 20px;
-border: none;
-background-color: white;
-box-shadow: 3px 3px 5px lightgrey;
-border-radius: 20px;
-width: 80%;
-margin: auto;
-position: relative;
-}
-
-.content-eligibility h1 {
+.eli-table .type {
 font-weight: bold;
-font-size: 5vmin;
-text-align: left;
-line-height: 100%;
-}
-
-.content-eligibility h2 {
+margin: 0;
 color: red;
-font-weight: bold;
-font-size: 3vmin;
 }
-
-.content-eligibility p {
-font-weight: 500;
-font-size: 2.5vmin;
+.eli-table .eli {
+font-weight: bold;
+font-size: medium;
+margin: 0;
+}
+.eli-table .desp {
+color: black;
+margin: 0;
+}
+.eli-table img {
+    height: 50px;
+    padding-top: 7px;
 }
 </style>

@@ -1,19 +1,19 @@
 <template>
     <div class="faq">
-        BLOOD DONATION FAQ
-    </div>
-    <div>
-        <div v-for="item in items" :key="item.id" class="faqborder">
-          <div class="title" :class="{'open':item.showContent}" @click="toggleContent(item.id)">
-              {{ item.title }}
-              <span class="toggleIcon">
-                {{ item.showContent ? '-' : '+' }}
-              </span>
+      <b>BLOOD DONATION FAQ</b>
+      <div>
+          <div v-for="item in items" :key="item.id" class="faqborder">
+            <div class="title" :class="{'open':item.showContent}" @click="toggleContent(item.id)">
+                {{ item.title }}
+                <span class="toggleIcon">
+                  {{ item.showContent ? '-' : '+' }}
+                </span>
+            </div>
+            <div class="content-edu" v-if="item.showContent">
+                {{ item.content }}
+            </div>
           </div>
-          <div class="content-edu" v-if="item.showContent">
-              {{ item.content }}
-          </div>
-        </div>
+      </div>
     </div>
 </template>
 
@@ -106,41 +106,35 @@ export default {
 </script>
 
 <style>
-.faqborder {
+.faq .faqborder {
   padding: 10px;
 }
 
-.faq {
-  font-weight: bold;
-  font-size: 24px;
-  text-align: center;
-  width: 100%;
-}
-
-.toggleIcon {
+.faq .toggleIcon {
   font-size: 20px;
   padding-left: 5px;
   font-weight: bold;
 }
 
-.title.open {
-  background-color: red;
-  color: white;
+.faq .title.open {
+  color: red;
 }
 
-.title {
-  padding: 10px;
+.faq .title {
+  padding: 6px 10px;
   border: 1px solid lightgrey;
   background-color: white;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: small;
 }
 
-.content-edu {
+.faq .content-edu {
   padding: 10px;
   border: 1px solid lightgrey;
   text-align: justify;
+  font-size: small;
 }
 </style>

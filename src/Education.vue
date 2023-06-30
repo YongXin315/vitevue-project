@@ -1,0 +1,119 @@
+<template>
+  <div class="education">
+    <h2>WHY BLOOD?</h2>
+    <div class="edu-div">
+      <img :src="imagePaths.bloodType" alt="Blood Type Image">
+      <div class="edu-div-content">
+        <p><b>WHAT BLOOD TYPES MATCH?</b><br>
+          There are four main blood types: A, B, AB and O. Combinations of proteins and sugars, called antigens, on the 
+          surface of red blood cells are what makes the blood type either compatible or incompatible with other blood types.</p>
+        <div><button @click="goToBloodType">Learn More</button></div>
+      </div>
+    </div>
+
+    <div class="edu-div">
+      <img :src="imagePaths.eligibility" alt="Blood Donation Image">
+      <div class="edu-div-content">
+        <p><b>AM I ELIGIBLE TO DONATE?</b><br>
+          Curious about your eligibility to donate blood? Find out if you meet the criteria to make a life-saving contribution.</p>
+        <div><button @click="goToEligibility">Learn More</button></div>
+      </div>
+    </div>
+
+    <div class="edu-div">
+      <img :src="imagePaths.perks" alt="Body Checkup Image">
+      <div class="edu-div-content">
+        <p><b>MALAYSIAN BLOOD DONOR PRIVILEGES</b><br>
+          Donating blood just once can save up to 3 lives but did you know regular blood donors get special medical privileges in Malaysia? 
+        Click 'Learn More' to explore the health benefits and medical privileges given to blood donors in Malaysia.</p>
+        <div><button @click="goToPerks">Learn More</button></div>
+      </div>
+    </div>
+
+    <div class="edu-div">
+      <div class="edu-div-content">
+        <p><b>FREQUENTLY ASKED QUESTIONS</b><br>
+          Answers to our most frequently asked questions are just one click away.</p>
+        <div><button @click="goToFAQ">Go to FAQ</button></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  import bloodType from './assets/edu-bloodtype.jpg';
+  import eligibility from './assets/edu-eligibility.jpg';
+  import perks from './assets/edu-perks.jpg';
+  import { useRouter } from 'vue-router';
+
+  export default {
+    setup () {
+      const router = useRouter();
+      function goToBloodType() {
+        router.push('/bloodtype');
+      }
+      function goToEligibility() {
+        router.push('/eligibility');
+      }
+      function goToPerks() {
+        router.push('/perks');
+      }
+      function goToFAQ() {
+        router.push('/faq');
+      }
+      return {
+        goToBloodType,
+        goToEligibility,
+        goToPerks,
+        goToFAQ,
+      }
+    },
+  data() {
+    return {
+      imagePaths: {
+        bloodType: bloodType,
+        eligibility: eligibility,
+        perks: perks,
+      },
+    };
+  },
+};
+</script>
+
+<style>
+.edu-div {
+  border: 1px solid lightgrey;
+  margin-bottom: 15px;
+}
+.edu-div-content {
+  padding: 15px;
+}
+.edu-div img {
+  width: 100%;
+}
+.edu-div b {
+  color: black;
+}
+.edu-div p {
+  color: grey;
+  text-align: justify;
+  font-size: small;
+  margin-top: 0;
+}
+.edu-div div {
+  text-align: right;
+}
+.edu-div button {
+  color: white;
+  background-color: red;
+  font-size: small;
+  padding: 5px 10px;
+  font-style: italic;
+  border-radius: 0;
+}
+.edu-div button:hover {
+  color: black;
+}
+</style>
+  
+  

@@ -1,6 +1,8 @@
 <template>
     <div class="bloodtype-table">
-      <p>Matching Blood Types</p>
+      <b>Matching Blood Types</b>
+      <p>A blood type is a classification of blood based on the presence or absence of antigens on the surface of red blood cells. 
+        Human blood is divided into one of four main blood types: A, B, AB, and O, and is further divided into Rh+ or Rh-.</p>
       <table>
         <thead>
           <tr>
@@ -48,32 +50,33 @@ export default {
   width: 95%;
   margin: auto;
 }
-
+.bloodtype-table p {
+  font-size: small;
+  text-align: justify;
+  color: grey;
+}
 .bloodtype-table table {
   width: 100%;
   border-collapse: collapse;
+  font-size: small;
 }
-
 .bloodtype-table th, td {
   padding: 8px;
+  text-align: center;
 }
-
 .bloodtype-table th {
   background-color: red;
   color: white;
   font-weight: bold;
 }
-
 .bloodtype-table .left-column {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
-
 .bloodtype-table .right-column {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
-
 .bloodtype-table .odd-row {
   background-color: #F2F2F2;
 }

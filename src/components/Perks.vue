@@ -1,24 +1,24 @@
 <template>
     <div class="perks">
-        MALAYSIAN BLOOD DONOR PRIVILEGES
+      <b>MALAYSIAN BLOOD DONOR PRIVILEGES</b>
+      <p>There are many health benefits to donating blood and those who donate 
+        blood in Malaysia can benefit from many medical perks offered by the Ministry of Health:</p>
+      <div class="perks-table">
+        <table>
+          <thead>
+            <tr>
+              <th class="left-column">Donation Frequency</th>
+              <th class="right-column">Medical Privileges</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(row, index) in tableData" :key="index" :class="{'odd-row': index % 2 !== 0}">
+              <td class="left-column">{{ row.column1 }}</td>
+              <td class="right-column">{{ row.column2 }}</td>
+            </tr>
+          </tbody>
+      </table>
     </div>
-    <p>There are many health benefits to donating blood and those who donate 
-      blood in Malaysia can benefit from many medical perks offered by the Ministry of Health:</p>
-    <div class="perks-table">
-      <table>
-        <thead>
-          <tr>
-            <th class="left-column">Donation Frequency</th>
-            <th class="right-column">Medical Privileges</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(row, index) in tableData" :key="index" :class="{'odd-row': index % 2 !== 0}">
-            <td class="left-column">{{ row.column1 }}</td>
-            <td class="right-column">{{ row.column2 }}</td>
-          </tr>
-        </tbody>
-    </table>
   </div>
 </template>
 
@@ -44,11 +44,9 @@ export default {
 </script>
 
 <style>
-.perks {
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-  width: 100%;
+.perks p {
+  font-size: small;
+  text-align: justify;
 }
 
 .perks-table {
@@ -67,12 +65,14 @@ export default {
 
 .perks-table th, td {
   padding: 8px;
+  font-size: small;
 }
 
 .perks-table th {
   background-color: red;
   color: white;
   font-weight: bold;
+  text-align: left;
 }
 
 .perks-table .odd-row {
@@ -83,10 +83,12 @@ export default {
 .perks-table .left-column {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  text-align: left;
 }
 
 .perks-table .right-column {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  text-align: left;
 }
 </style>

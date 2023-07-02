@@ -116,7 +116,7 @@ export default {
 height: 50px;
 }
 .faq .faqborder {
-padding: 10px 5px;
+padding: 5px;
 }
 .faq .toggleIcon {
 font-size: 20px;
@@ -140,5 +140,6 @@ padding: 10px;
 border: 1px solid lightgrey;
 text-align: justify;
 font-size: small;
+background-color: white;
 }
 </style>

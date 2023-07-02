@@ -98,7 +98,7 @@ height: 50px;
 }
 .eli-table td {
 background-color: #FFF5F5;
-border: 6px solid white;
+border: 6px solid #f9f9f9;
 padding: 10px 20px;
 }
 .eli-table .type {
@@ -116,7 +116,7 @@ color: black;
 margin: 0;
 }
 .eli-table img {
-    height: 50px;
-    padding-top: 7px;
+height: 50px;
+padding-top: 7px;
 }
 </style>

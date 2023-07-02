@@ -87,6 +87,7 @@
 }
 .edu-div-content {
   padding: 15px;
+  background-color: white;
 }
 .edu-div img {
   width: 100%;

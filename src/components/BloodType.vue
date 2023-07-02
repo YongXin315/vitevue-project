@@ -5,7 +5,8 @@
       <b>Matching Blood Types</b>
       <p>A blood type is a classification of blood based on the presence or absence of antigens on the surface of red blood cells. 
         Human blood is divided into one of four main blood types: A, B, AB, and O, and is further divided into Rh+ or Rh-.</p>
-      <table>
+      <div class="table-border">
+        <table>
         <thead>
           <tr>
             <th class="left-column">Type</th>
@@ -20,7 +21,8 @@
             <td class="right-column">{{ row.column3 }}</td>
           </tr>
         </tbody>
-    </table>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -50,7 +52,6 @@ export default {
 <style>
 .bloodtype-table {
 border-radius: 5px;
-background-color: white;
 margin: auto;
 }
 .bloodtype-table img {
@@ -59,7 +60,12 @@ height: 50px;
 .bloodtype-table p {
 font-size: small;
 text-align: justify;
-color: grey;
+}
+.bloodtype-table .table-border {
+padding: 10px;
+background-color: white;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .bloodtype-table table {
 width: 100%;

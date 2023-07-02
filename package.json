@@ -11,7 +11,9 @@
   "dependencies": {
     "firebase": "^9.23.0",
     "vue": "^3.2.47",
-    "vue-router": "^4.2.2"
+    "vue-router": "^4.2.2",
+    "vue2-google-maps": "^0.10.7",
+    "vue3-google-map": "^0.15.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",

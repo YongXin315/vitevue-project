@@ -1,7 +1,6 @@
 <template>
     <div class="eligibility">
         <b>Blood Donation Eligibility Requirements</b>
-        <p style="font-size: small;"><b>REMEMBER!</b> Drink plenty of fluids and eat something light. It takes <b>4-8 weeks</b> to regenerate the red blood cells lost during a blood donation.</p>
         <table class="eli-table">
             <tr>
                 <td style="width: 50%">

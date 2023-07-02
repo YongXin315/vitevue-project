@@ -3,12 +3,11 @@
   import LoginForm from './components/LoginForm.vue'
   import { auth } from'./firebase/init.js'
   import { signOut } from 'firebase/auth'
-  import FAQ from './components/Faq.vue'
-  import Perks from './components/Perks.vue'
-  import Eligibility from './components/Eligibility.vue'
-  import BloodType from './components/BloodType.vue'
+  import Discover from './components/Discover.vue'
   import Education from './Education.vue'
   import { RouterLink } from 'vue-router'
+  import GoogleMap from './components/GoogleMap.vue'
+  import Campaign from './components/Campaign.vue'
 </script>
 
 <template>
@@ -30,6 +29,9 @@
   <!-- is logged in -->
   <div v-else>
     <h2>Welcome {{ displayName }}</h2>
+    <Campaign />
+    <GoogleMap />
+    <!--<Discover />-->
     <Education />
     <button @click="logOut">Sign Out</button>
   </div>

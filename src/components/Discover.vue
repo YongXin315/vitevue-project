@@ -67,8 +67,6 @@
 <style>
 .discover {
 font-family: Arial, sans-serif;
-margin: 0;
-padding: 20px;
 background-color: #f9f9f9;
 }
 
@@ -76,21 +74,21 @@ background-color: #f9f9f9;
 color: #333;
 background-color:crimson;
 text-align: center;
-font-size: 32px;
-margin-bottom: 30px;
+font-size: 20px;
+margin-bottom: 20px;
 text-transform: uppercase;
 }
 
 .discover h2 {
 color: #666;
-font-size: 20px;
+font-size: medium;
 margin-bottom: 15px;
 }
 
 .discover p {
 color: #666;
 line-height: 1.5;
-font-size: 15px;
+font-size: small;
 text-align: justify;
 }
 
@@ -109,39 +107,11 @@ text-decoration: underline;
 }
 
 .discover .section {
-margin-bottom: 30px;
+margin-bottom: 20px;
 background-color: #fff;
-padding: 20px;
+padding: 10px;
 border-radius: 5px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-@media screen and (max-width: 768px) {
-.discover h1 {
-font-size: 24px;
-}
-
-.discover h2 {
-font-size: 20px;
-}
-
-.discover .section {
-padding: 15px;
-}
-}
-
-@media screen and (max-width: 480px) {
-.discover h1 {
-font-size: 20px;
-}
-
-.discover h2 {
-font-size: 18px;
-}
-
-.discover .section {
-padding: 10px;
-}
 }
 </style>
   

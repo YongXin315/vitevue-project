@@ -11,9 +11,7 @@
 </script>
 
 <template>
-  <div id="app">
-    <router-view></router-view>
-    <div v-if="!isLoggedIn">
+  <div v-if="!isLoggedIn">
     <!-- login -->
     <template v-if="showLogin">
       <login-form @loggedIn="isLoggedIn= true" class="login"/>
@@ -28,11 +26,14 @@
   <!-- is logged in -->
   <div v-else>
     <h2>Welcome {{ displayName }}</h2>
-    <Campaign />
-    <!--<Discover />
-    <GoogleMap />-->
-    <Education />
-    <button @click="logOut">Sign Out</button>
+    <div id="app">
+      <router-view></router-view>
+      <Campaign />
+      <Discover />
+      <GoogleMap />
+      <!---->
+      <Education />
+      <button @click="logOut">Sign Out</button>
   </div>
   </div>
   
@@ -65,8 +66,8 @@ export default {
 </script>
 
 <style>
-  #app {
-    padding: 10px 5px;
-    background-color: #f9f9f9;
-  }
+#app {
+padding: 10px 5px;
+background-color: #f9f9f9;
+}
 </style>

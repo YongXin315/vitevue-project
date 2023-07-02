@@ -4,7 +4,7 @@
     <p style="font-family:Times New Roman; font-size:20px;">Blood donation campaigns</p>
     <div class="container">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.1117610863434!2d101.61423517467577!3d3.0647849969109493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4c5f9450eaf9%3A0xe4c38bd5f7d440b1!2sTaylor&#39;s%20University%20Lakeside%20Campus!5e0!3m2!1sen!2smy!4v1688204067801!5m2!1sen!2smy" 
-      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     
     <div class="section">
@@ -58,7 +58,7 @@
   
     <div class="container">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.456807611912!2d101.7110931746754!3d2.970662997005473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdca0c21c76841%3A0x2c98384480140180!2sIOI%20City%20Mall!5e0!3m2!1sen!2smy!4v1688204094657!5m2!1sen!2smy" 
-      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   
     <div class="section">
@@ -107,7 +107,7 @@
   
     <div class="container">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7967.308370541806!2d101.62684859001038!3d3.1853200371597294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc48a5d32f5fb7%3A0x1fbfb9bf04283220!2sDesa%20Parkcity%2C%2052200%20Kuala%20Lumpur%2C%20Federal%20Territory%20of%20Kuala%20Lumpur!5e0!3m2!1sen!2smy!4v1688204830497!5m2!1sen!2smy" 
-      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   
     <div class="section">
@@ -155,7 +155,7 @@
   
     <div class="container">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.1658017801956!2d101.66609207681692!3d3.050235388998303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4ae7f2b662d5%3A0x24640a80dedccc95!2sPavilion%20Bukit%20Jalil!5e0!3m2!1sen!2smy!4v1688205098352!5m2!1sen!2smy" 
-      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   
     <div class="section">
@@ -204,7 +204,7 @@
   
     <div class="container">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.08455521837!2d101.60377057467578!3d3.0720836969036194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4c8776586d9b%3A0x5e19a549d4f26f25!2sSunway%20Pyramid%20Shopping%20Mall!5e0!3m2!1sen!2smy!4v1688205306454!5m2!1sen!2smy" 
-      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   
     <div class="section">
@@ -296,7 +296,7 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .campaign .container {
-height: 60vh;
+height: 50vh;
 display: flex;
 align-items: center;
 flex-direction: column;

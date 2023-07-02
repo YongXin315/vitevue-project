@@ -29,9 +29,9 @@
   <!-- is logged in -->
   <div v-else>
     <h2>Welcome {{ displayName }}</h2>
-    <Campaign />
-    <GoogleMap />
-    <!--<Discover />-->
+    
+    <!--<Campaign />
+    <GoogleMap /><Discover />-->
     <Education />
     <button @click="logOut">Sign Out</button>
   </div>

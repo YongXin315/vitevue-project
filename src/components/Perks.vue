@@ -1,6 +1,8 @@
 <template>
     <div class="perks">
-      <b>MALAYSIAN BLOOD DONOR PRIVILEGES</b>
+      <img :src="imagePaths.privileges" alt="Privilege Icon">
+      <br>
+      <b>Malaysian Blood Donor Privileges</b>
       <p>There are many health benefits to donating blood and those who donate 
         blood in Malaysia can benefit from many medical perks offered by the Ministry of Health:</p>
       <div class="perks-table">
@@ -23,6 +25,7 @@
 </template>
 
 <script>
+import privileges from '../assets/perks-privilege.png';
 export default {
   data() {
     return {
@@ -37,7 +40,10 @@ export default {
         { column1: '31 ~ 40 times', column2: 'Free outpatient treatment and medical treatment and first class wards for a period of * 4 years.' },
         { column1: '41 ~ 50 times', column2: 'Free outpatient treatment and medical treatment and first class wards for a period of * 6 years.' },
         { column1: 'Over 50 times (for "Whole Blood") and Over 150 times (for aferesis donors)', column2: 'Free outpatient treatment and first-class medical treatment and wards for 10 years and second-class wards of life after 10 years in first-class ward.' },
-      ]
+      ],
+      imagePaths: {
+        privileges: privileges,
+      },
     };
   }
 };
@@ -49,13 +55,8 @@ export default {
   text-align: justify;
 }
 
-.perks-table {
-  padding: 15px;
-  box-shadow: 3px 3px 3px 2px lightgrey;
-  border-radius: 5px;
-  background-color: white;
-  width: 95%;
-  margin: auto;
+.perks img {
+  height: 50px;
 }
 
 .perks-table table {

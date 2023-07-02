@@ -1,5 +1,7 @@
 <template>
     <div class="bloodtype-table">
+      <img :src="imagePaths.bticon" alt="Blood Type Icon">
+      <br>
       <b>Matching Blood Types</b>
       <p>A blood type is a classification of blood based on the presence or absence of antigens on the surface of red blood cells. 
         Human blood is divided into one of four main blood types: A, B, AB, and O, and is further divided into Rh+ or Rh-.</p>
@@ -23,6 +25,7 @@
 </template>
 
 <script>
+import bticon from '../assets/bt-icon.png';
 export default {
   data() {
     return {
@@ -35,7 +38,10 @@ export default {
         { column1: 'O-', column2: 'ALL BLOOD TYPES', column3: 'O-' },
         { column1: 'B-', column2: 'B+, B-, AB+, AB-', column3: 'B-, O-' },
         { column1: 'AB-', column2: 'AB+, AB-', column3: 'AB-, A-, B-, O-' }
-        ]
+        ],
+        imagePaths: {
+        bticon: bticon,
+      },
     };
   }
 };
@@ -43,41 +49,41 @@ export default {
 
 <style>
 .bloodtype-table {
-  padding: 15px;
-  box-shadow: 3px 3px 3px 2px lightgrey;
-  border-radius: 5px;
-  background-color: white;
-  width: 95%;
-  margin: auto;
+border-radius: 5px;
+background-color: white;
+margin: auto;
+}
+.bloodtype-table img {
+height: 50px;
 }
 .bloodtype-table p {
-  font-size: small;
-  text-align: justify;
-  color: grey;
+font-size: small;
+text-align: justify;
+color: grey;
 }
 .bloodtype-table table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: small;
+width: 100%;
+border-collapse: collapse;
+font-size: small;
 }
 .bloodtype-table th, td {
-  padding: 8px;
-  text-align: center;
+padding: 8px;
+text-align: center;
 }
 .bloodtype-table th {
-  background-color: red;
-  color: white;
-  font-weight: bold;
+background-color: red;
+color: white;
+font-weight: bold;
 }
 .bloodtype-table .left-column {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
 }
 .bloodtype-table .right-column {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
 }
 .bloodtype-table .odd-row {
-  background-color: #F2F2F2;
+background-color: #F2F2F2;
 }
 </style>

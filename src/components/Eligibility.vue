@@ -1,5 +1,7 @@
 <template>
     <div class="eligibility">
+        <img :src="imagePaths.eliicon" alt="Eligibility Icon">
+        <br>
         <b>Blood Donation Eligibility Requirements</b>
         <table class="eli-table">
             <tr>
@@ -12,7 +14,7 @@
                 <td style="width: 50%">
                     <img :src="imagePaths.alcohol" alt="Alcohol free Icon">
                     <p class="type">MEDICINE &amp; ALCOHOL</p>
-                    <p class="eli">alcohol-free</p>
+                    <p class="eli">Alcohol-free</p>
                     <p class="desp">Avoid consuming alcohol a day before donating</p>
                 </td>
             </tr>
@@ -20,7 +22,7 @@
                 <td>
                     <img :src="imagePaths.healthy" alt="Healthy Icon">
                     <p class="type">HEALTHY</p>
-                    <p class="eli">physical &amp; mental</p>
+                    <p class="eli">Physical &amp; mental</p>
                     <p class="desp">No chronic diseases</p>
                 </td>
                 <td>
@@ -47,13 +49,13 @@
                 <td>
                     <img :src="imagePaths.gender" alt="Gender Icon">
                     <p class="type">HIGH-RISK ACTIVITIES</p>
-                    <p class="eli">do not engage</p>
+                    <p class="eli">Do not engage</p>
                     <p class="desp">Do not use drugs or engage in sexual intercourse with many partners</p>
                 </td>
                 <td>
                     <img :src="imagePaths.woman" alt="Woman Icon">
                     <p class="type">WOMEN</p>
-                    <p class="eli">not pregnant or during menstrual cycle</p>
+                    <p class="eli">Not pregnant or during menstrual cycle</p>
                     <p class="desp">including breastfeeding</p>
                 </td>
             </tr>
@@ -62,6 +64,7 @@
 </template>
 
 <script>
+import eliicon from '../assets/eli-icon.png';
 import age from '../assets/eli-age.png';
 import alcohol from '../assets/eli-alcohol.png';
 import gender from '../assets/eli-gender.png';
@@ -74,6 +77,7 @@ export default {
     data() {
     return {
       imagePaths: {
+        eliicon: eliicon,
         age: age,
         alcohol: alcohol,
         gender: gender,
@@ -89,6 +93,9 @@ export default {
 </script>
 
 <style>
+.eligibility img {
+height: 50px;
+}
 .eli-table td {
 background-color: #FFF5F5;
 border: 6px solid white;

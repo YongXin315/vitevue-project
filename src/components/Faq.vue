@@ -1,6 +1,8 @@
 <template>
     <div class="faq">
-      <b>BLOOD DONATION FAQ</b>
+      <img :src="imagePaths.faqicon" alt="FAQ Icon">
+      <br>
+      <b>Frequently Asked Questions</b>
       <div>
           <div v-for="item in items" :key="item.id" class="faqborder">
             <div class="title" :class="{'open':item.showContent}" @click="toggleContent(item.id)">
@@ -18,6 +20,7 @@
 </template>
 
 <script>
+import faqicon from '../assets/faq-icon.png';
 export default {
   data() {
     return {
@@ -88,7 +91,10 @@ export default {
           content: "Your blood will be tested to determine blood group, viral infwhich is used in 22 blood collection centers nationwideections such as syphilis, hepatitis (B & C) and AIDS (HIV). Then, stored for patient use. Blood can also be separated into several blood components and can be used to treat more than one patient.",
           showContent: false
         }
-      ]
+      ],
+      imagePaths: {
+        faqicon: faqicon,
+      },
     };
   },
   methods: {
@@ -106,35 +112,33 @@ export default {
 </script>
 
 <style>
+.faq img {
+height: 50px;
+}
 .faq .faqborder {
-  padding: 10px;
+padding: 10px 5px;
 }
-
 .faq .toggleIcon {
-  font-size: 20px;
-  padding-left: 5px;
-  font-weight: bold;
+font-size: 20px;
+padding-left: 5px;
 }
-
 .faq .title.open {
-  color: red;
+color: red;
 }
-
 .faq .title {
-  padding: 6px 10px;
-  border: 1px solid lightgrey;
-  background-color: white;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: small;
+padding: 6px 10px;
+border: 1px solid lightgrey;
+background-color: white;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: small;
+text-align: left;
 }
-
 .faq .content-edu {
-  padding: 10px;
-  border: 1px solid lightgrey;
-  text-align: justify;
-  font-size: small;
+padding: 10px;
+border: 1px solid lightgrey;
+text-align: justify;
+font-size: small;
 }
 </style>

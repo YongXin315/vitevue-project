@@ -1,89 +1,124 @@
 <template>
-    <form @submit.prevent="signUp" class="signup">
-    <h2></h2>
-      <input type="text" class="input" placeholder="Username" required v-model="username">
-      <input type="email" class="input" placeholder="Email" required v-model="email">
-      <input type="password" class="input" placeholder="Password" required v-model="password">
-      <button class="signupbut">Sign Up</button>
-    </form>
-  </template>
-  
-  <script>
-  import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
-  import { auth } from '../firebase/init.js'
-  export default {
-    emits: ['loggedIn'],
-    data() {
-      return {
-        username: '',
-        email:    '',
-        password: ''
-      }
-    },
-    methods: {
-      signUp() {
-        createUserWithEmailAndPassword(auth, this.email, this.password)
-        .then(()=>{
+  <form @submit.prevent="signUp" class="signup">
+    <div class="signupform">
+      <input type="text" class="input" placeholder="Username" required v-model="username" style="border-radius: 10px;"><br>
+      <input type="email" class="input" placeholder="Email" required v-model="email" style="border-radius: 10px;"><br>
+      <input type="password" class="input" placeholder="Password" required v-model="password" style="border-radius: 10px;"><br>
+      <input type="tel" class="input" placeholder="Phone Number" required v-model="phone"  style="border-radius: 10px;"><br>
+      <div>
+        <input type="radio" id="male" value="Male" v-model="gender">
+        <label for="male" style="font-size: 14px;"> Male</label> &nbsp;&nbsp;
+      
+        <input type="radio" id="female" value="Female" v-model="gender">
+        <label for="female" style="font-size:14px;"> Female</label>
+      </div>
+      
+      <button class="signupbut" style="font-weight:bold;">Sign Up</button>
+    </div>
+  </form>
 
-            updateProfile(auth.currentUser,{
-                displayName: this.username
-            })
-            .then(() => {
-                this.$emit('loggedIn')
-            })
-        })
-        
-        .catch((error) =>{
-            console.log(error.message)
-        })
+  <div v-if="notification" class="notification">
+    {{ notification }}
+  </div>
+
+  
+</template>
+
+<script>
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { getFirestore, doc, setDoc } from 'firebase/firestore'
+import { auth } from '../firebase/init.js'
+
+
+export default {
+  
+  emits: ['loggedIn'],
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+      phone: '',
+      gender: '',
+      notification:''
+    }
+  },
+  methods: {
+    signUp() {
+      const punctuation= /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+      if (this.password.length <= 7 || !punctuation.test(this.password)) {
+        this.notification='The password must be more than 7 characters long and at least one punctuation such as @#$%.';
+        return;
       }
+      createUserWithEmailAndPassword(auth, this.email, this.password)
+      .then((userCredential) => {
+        updateProfile(userCredential.user, {
+          displayName: this.username
+        })
+        .then(() => {
+          const userDocument = {
+            displayName: this.username,
+            email: this.email,
+            phone: this.phone,
+            gender: this.gender
+          }
+
+          const db = getFirestore();
+          setDoc(doc(db, 'Sign Up Details', userCredential.user.uid), userDocument);
+        })
+        .then(() => {
+          this.$emit('loggedIn')
+        })
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+          this.notification='This email is already registered';
+              break;
+            
+          case 'auth/invalid-email':
+          this.notification='This email address is not valid.';
+            break;
+          case 'auth/operation-not-allowed':
+          this.notification='Email/Password accounts are not enabled';
+          break;
+          case 'auth/weak-password':
+          this.notification='The password is too weak,please include at least punctuation.';
+            
+            break;
+          default:
+            console.log(error.message);
+        }
+      });
     }
   }
-  </script>
+}
+</script>
 
 <style>
-.signup{
+.signup {
 text-align:center;
 padding:10px;
-border:1px solid black;
 }
-
-.input{
+.input {
 margin-bottom:10px;
 padding:5px;
 }
-
-.signupbut{
---c:  #E95A49; /* the color*/
-box-shadow: 0 0 0 .1em inset var(--c); 
---_g: linear-gradient(var(--c) 0 0) no-repeat;
-background: 
-var(--_g) calc(var(--_p,0%) - 100%) 0%,
-var(--_g) calc(200% - var(--_p,0%)) 0%,
-var(--_g) calc(var(--_p,0%) - 100%) 100%,
-var(--_g) calc(200% - var(--_p,0%)) 100%;
-background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-outline-offset: .1em;
-transition: background-size .4s, background-position 0s .4s;
-font-family: system-ui, sans-serif;
-font-size:normal;
-cursor: pointer;
-padding: 5px;
-border: 2px solid #E95A49;
-}
-
-.signupbut:hover{
---_p: 100%;
-transition: background-position .4s, background-size 0s;
-}
-
-.signupbut:active{
-box-shadow: 0 0 9e9q inset #0009; 
-background-color: var(--c);
-color: #fff;
-}
-
 .input::placeholder {
 font-family: Arial, Helvetica, sans-serif;
+}
+.signupbut {
+border-radius: 10px;
+padding:5px;
+border:1px solid transparent;
+width:155px;
+}
+.notification {
+background-color: #e74c3c;
+text-align:center;
+color: #fff;
+padding: 10px;
+border-radius: 5px;
+margin-bottom: 10px;
 }
 </style>

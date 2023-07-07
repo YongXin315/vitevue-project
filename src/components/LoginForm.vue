@@ -1,19 +1,29 @@
 <template>
   <form @submit.prevent="login" class="login">
-  <input type="email"  class="input"  placeholder="What's your email?"    required v-model="email"><br>
-    <input type="password" class="input" placeholder="Password" required v-model="password"><br>
-    <button class="loginbut">Log in</button>
+ 
+    <img src="imagesourcehere.png" alt="community logo" width="300" height="300"><br><br>
+    <input type="email"  class="input"  placeholder="What's your email?"    required v-model="email" style="border-radius: 10px;"><br>
+    <input type="password" class="input" placeholder="Password" required v-model="password" style="border-radius: 10px;"><br>
+    <button class="loginbut" style="font-weight:bold;">Log in</button>
   </form>
+
+  <div v-if="notification" class="notification">
+  {{ notification }}
+</div>
+
 </template>
-  
+
 <script>
 import { signInWithEmailAndPassword } from '@firebase/auth'
 import { auth } from '../firebase/init.js'
+
 export default {
+  
   data() {
     return {
       email:    '',
-      password: ''
+      password: '',
+      notification:'',
     }
   },
   methods: {
@@ -24,8 +34,18 @@ export default {
         this.$emit('loggedIn');
       })
       .catch(error => {
-      console.error('Login error:', error);
-      });
+        switch (error.code) {
+        case 'auth/user-not-found':
+          this.notification='This email is still not yet register. Please register before login';
+          break;
+        case 'auth/wrong-password':
+          this.notification='The email or password is incorrect. Please try again.';
+          break;
+        default:
+          console.error('Login error:', error);
+        }
+    });
+     
   }
   }
 };
@@ -34,37 +54,19 @@ export default {
 <style>
 .login{
 text-align:center;
-border:1px solid black;
 padding:10px;
 }
-
 .loginbut{
---c:  #E95A49; /* the color*/
-box-shadow: 0 0 0 .1em inset var(--c); 
---_g: linear-gradient(var(--c) 0 0) no-repeat;
-background: 
-var(--_g) calc(var(--_p,0%) - 100%) 0%,
-var(--_g) calc(200% - var(--_p,0%)) 0%,
-var(--_g) calc(var(--_p,0%) - 100%) 100%,
-var(--_g) calc(200% - var(--_p,0%)) 100%;
-background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-outline-offset: .1em;
-transition: background-size .4s, background-position 0s .4s;
-font-family: system-ui, sans-serif;
-font-size:normal;
-cursor: pointer;
-padding: 5px;
-border: 2px solid #E95A49;
+border-radius: 10px;
+padding:5px;
+border:1px solid transparent;
+width:155px;
 }
-
-.loginbut:hover{
---_p: 100%;
-transition: background-position .4s, background-size 0s;
-}
-
-.loginbut:active{
-box-shadow: 0 0 9e9q inset #0009; 
-background-color: var(--c);
-color: #fff;
+.notification {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 </style>

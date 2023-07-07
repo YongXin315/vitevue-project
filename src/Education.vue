@@ -44,28 +44,20 @@
   import bloodType from './assets/edu-bloodtype.jpg';
   import eligibility from './assets/edu-eligibility.jpg';
   import perks from './assets/edu-perks.jpg';
-  import { useRouter } from 'vue-router';
 
   export default {
-    setup () {
-      const router = useRouter();
-      function goToBloodType() {
-        router.push('/bloodtype');
-      }
-      function goToEligibility() {
-        router.push('/eligibility');
-      }
-      function goToPerks() {
-        router.push('/perks');
-      }
-      function goToFAQ() {
-        router.push('/faq');
-      }
-      return {
-        goToBloodType,
-        goToEligibility,
-        goToPerks,
-        goToFAQ,
+    methods: {
+      goToBloodType() {
+        this.$router.push('/education/bloodtype');
+      },
+      goToEligibility() {
+        this.$router.push('/education/eligibility');
+      },
+      goToPerks() {
+        this.$router.push('/education/perks');
+      },
+      goToFAQ() {
+        this.$router.push('/education/faq');
       }
     },
   data() {

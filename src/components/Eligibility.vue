@@ -97,7 +97,7 @@ export default {
 height: 50px;
 }
 .eli-table td {
-background-color: #FFF5F5;
+background-color: white;
 border: 6px solid #f9f9f9;
 padding: 10px 20px;
 }

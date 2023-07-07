@@ -1,7 +1,11 @@
 <template>
+  <CampTest />
    <div class="campaign">
-    <h1>Discover</h1>
     <p style="font-family:Times New Roman; font-size:20px;">Blood donation campaigns</p>
+    
+    
+    <MapTest />
+    <br>
     <div class="container">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.1117610863434!2d101.61423517467577!3d3.0647849969109493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4c5f9450eaf9%3A0xe4c38bd5f7d440b1!2sTaylor&#39;s%20University%20Lakeside%20Campus!5e0!3m2!1sen!2smy!4v1688204067801!5m2!1sen!2smy" 
       width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -246,8 +250,11 @@
 </template>
   
 <script>
+import MapTest from '../components/maptest.vue';
+import CampTest from '../components/camptest.vue';
 export default{
-  name:'Campaign'
+  name:'Campaign',
+  components: { MapTest, CampTest }
 }
 </script>
 
@@ -255,20 +262,6 @@ export default{
 .campaign {
 font-family: Arial, sans-serif;
 }
-
-.campaign h1 {
-color: white;
-font-size: 24px;
-text-align: center;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-background-color: #f1f1f1;
-width: 80%;
-margin: 0 auto;
-padding: 20px;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-background-color: crimson;
-}
-
 .campaign p {
 font-size: 20px;
 margin: 0;
@@ -318,7 +311,7 @@ padding: 0;
 .campaign li {
 display: flex;
 justify-content: space-between;
-margin-bottom: 10px;
+margin-bottom: 8px;
 background-color: #f1f1f1;
 padding: 7px;
 border-radius: 5px;

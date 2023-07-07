@@ -1,48 +1,57 @@
 <script setup>
   import SignupForm from './components/SignupForm.vue'
   import LoginForm from './components/LoginForm.vue'
-  import { auth } from'./firebase/init.js'
-  import { signOut } from 'firebase/auth'
   import Discover from './components/Discover.vue'
   import Education from './Education.vue'
   import { RouterLink } from 'vue-router'
-  import GoogleMap from './components/GoogleMap.vue'
+  //import GoogleMap from './components/GoogleMap.vue'
   import Campaign from './components/Campaign.vue'
+  import Organization from './components/Organization.vue'
+  import Maptest from './components/maptest.vue'
+  import HamburgerMenu from './components/HamburgerMenu.vue'
+  import Community from './components/Community.vue'
+  import Home from './components/Home.vue'
+
 </script>
 
 <template>
   <div v-if="!isLoggedIn">
     <!-- login -->
     <template v-if="showLogin">
-      <login-form @loggedIn="isLoggedIn= true" class="login"/>
+      <login-form @loggedIn="logInOrSignUp" class="login"/>
       <p style="text-align: center;">No account yet? <span @click="showLogin=false" style="font-weight: bold; text-decoration: underline;">Sign Up</span> instead.</p>
     </template>
     <!-- or register -->
     <template v-else>
-      <signup-form @loggedIn="isLoggedIn= true" class="signup"/>
+      <signup-form @loggedIn="logInOrSignUp" class="signup"/>
       <p style="text-align:center;">Already registered? <span @click="showLogin=true" style="font-weight: bold; text-decoration: underline;">Login</span> instead.</p>
     </template>
   </div>
   <!-- is logged in -->
   <div v-else>
-    <h2>Welcome {{ displayName }}</h2>
-    <div id="app">
+    <div>
+      <div style="position: fixed; height:50px; width: 100%; background-color: red;">
+        &nbsp;
+      </div>
+    </div>
+    <div id="app1">
+      <h2 class="welcome">Welcome, {{ displayName }}</h2>
       <router-view></router-view>
-      <Campaign />
-      <Discover />
-      <GoogleMap />
-      <!---->
-      <Education />
-      <button @click="logOut">Sign Out</button>
-  </div>
+      <HamburgerMenu :isLoggedIn="isLoggedIn" @logOut="logOut" />
+      <!--<Discover /><GoogleMap /><Organization /><Maptest /><Campaign /><Education /><Home />
+      -->
+    </div>
   </div>
   
 </template>
 
 <script>
+import { auth } from'./firebase/init.js'
+import { signOut } from 'firebase/auth'
+import { useRouter } from 'vue-router';
 export default {
   name: 'App',
-  components: { SignupForm, LoginForm, 'router-link': RouterLink },
+  components: { SignupForm, LoginForm, HamburgerMenu },
   data() {
     return {
       isLoggedIn: false,
@@ -56,18 +65,30 @@ export default {
     }
   },
   methods:{
+    logInOrSignUp() {
+      this.isLoggedIn = true;
+      this.$router.push('/home'); // Redirect to the home page
+    },
     logOut(){
       signOut(auth)
       .then(() => {
-        this.isLoggedIn=false})
+        this.isLoggedIn=false;
+        const router = useRouter();
+          router.push('/');
+        })
     }
   },
 }
 </script>
 
 <style>
-#app {
-padding: 10px 5px;
+#app1 {
+padding: 10px 30px;
+padding-top: 50px;
 background-color: #f9f9f9;
+height: 100%;
+}
+.welcome {
+text-align: left;
 }
 </style>

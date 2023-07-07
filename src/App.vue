@@ -63,16 +63,10 @@ export default {
       this.displayName = auth.currentUser.displayName
     }
   },
-  beforeUnmount() {
-    const currentRoute = useRoute();
-    if (currentRoute.path !== '/home') {
-      this.$router.push('/home');
-    }
-  },
   methods:{
     logInOrSignUp() {
       this.isLoggedIn = true;
-      this.$router.push('/home');
+      this.$router.push('/home'); // Redirect to the home page
     },
     logOut(){
       signOut(auth)

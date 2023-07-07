@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="login" class="login">
  
-    <img src="imagesourcehere.png" alt="community logo" width="300" height="300"><br><br>
+    <img :src="imagePaths.appicon" alt="community logo" width="50" height="50"><br><br>
     <input type="email"  class="input"  placeholder="What's your email?"    required v-model="email" style="border-radius: 10px;"><br>
     <input type="password" class="input" placeholder="Password" required v-model="password" style="border-radius: 10px;"><br>
     <button class="loginbut" style="font-weight:bold;">Log in</button>
@@ -16,6 +16,7 @@
 <script>
 import { signInWithEmailAndPassword } from '@firebase/auth'
 import { auth } from '../firebase/init.js'
+import appicon from '../assets/appicon.png';
 
 export default {
   
@@ -24,6 +25,9 @@ export default {
       email:    '',
       password: '',
       notification:'',
+      imagePaths: {
+      appicon: appicon,
+      }
     }
   },
   methods: {

@@ -64,20 +64,22 @@ export default {
     }
   },
   mounted() {
+    window.addEventListener('beforeunload', this.saveLastVisitedPage);
     const lastVisitedPage = localStorage.getItem('lastVisitedPage');
     if (lastVisitedPage && this.$route.path !== lastVisitedPage) {
       this.$router.push(lastVisitedPage);
     }
   },
+  beforeUnmount() {
+    window.removeEventListener('beforeunload', this.saveLastVisitedPage);
+  },
   methods:{
+    saveLastVisitedPage() {
+      localStorage.setItem('lastVisitedPage', '/home');
+    },
     logInOrSignUp() {
       this.isLoggedIn = true;
-      const lastVisitedPage = localStorage.getItem('lastVisitedPage');
-      if (lastVisitedPage) {
-        this.$router.push(lastVisitedPage);
-      } else {
-        this.$router.push('/home');
-      }
+      this.$router.push('/home');
     },
     logOut(){
       signOut(auth)

@@ -63,20 +63,13 @@ export default {
       this.displayName = auth.currentUser.displayName
     }
   },
-  mounted() {
-    window.addEventListener('beforeunload', this.saveLastVisitedPage);
-    const lastVisitedPage = localStorage.getItem('lastVisitedPage');
-    if (lastVisitedPage && this.$route.path !== lastVisitedPage) {
-      this.$router.push(lastVisitedPage);
+  beforeUnmount() {
+    const currentRoute = useRoute();
+    if (currentRoute.path !== '/home') {
+      this.$router.push('/home');
     }
   },
-  beforeUnmount() {
-    window.removeEventListener('beforeunload', this.saveLastVisitedPage);
-  },
   methods:{
-    saveLastVisitedPage() {
-      localStorage.setItem('lastVisitedPage', '/home');
-    },
     logInOrSignUp() {
       this.isLoggedIn = true;
       this.$router.push('/home');

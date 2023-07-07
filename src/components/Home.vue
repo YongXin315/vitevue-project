@@ -10,7 +10,7 @@
     <Community />
     <div class="homenews">
       <h2 class="homenewstitle">HIGHLIGHTS
-        <span style="float: right" @click="goToDiscover">See More &#187;</span>
+        <span style="float: right" @click="goToDiscover">See More <i class='fas fa-angle-double-right'></i></span>
       </h2>
       <div class="section">
       <a href= "https://www.freemalaysiatoday.com/category/leisure/2021/08/10/a-guide-to-donating-blood-for-the-first-time/" target="_blank"><img src="https://media.freemalaysiatoday.com/wp-content/uploads/2021/06/03-BLOOD-DONATION-.jpg" width="100%" 

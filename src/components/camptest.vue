@@ -1,7 +1,7 @@
 <template>
     <div class="camptest">
       <input class="search" type="text" v-model="searchQuery" placeholder="Search by location" />
-      <label style="font-size: small;">Filter by date: </label>
+      <label><i class="fa fa-filter"></i>&nbsp;&nbsp;</label>
       <input class="date" type="date" v-model="searchDate" />
   
       <ul>
@@ -87,6 +87,9 @@ background-color: white;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 margin-bottom: 10px;
 border-radius: 8px;
+}
+.camptest li:hover {
+background-color: white;
 }
 .camptest h3 {
 margin: 0;

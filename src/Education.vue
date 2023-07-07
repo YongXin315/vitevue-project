@@ -7,7 +7,7 @@
         <p><b>WHAT BLOOD TYPES MATCH?</b><br>
           There are four main blood types: A, B, AB and O. Combinations of proteins and sugars, called antigens, on the 
           surface of red blood cells are what makes the blood type either compatible or incompatible with other blood types.</p>
-        <div><button @click="goToBloodType">Learn More</button></div>
+        <div><button @click="goToBloodType"><i class='fas fa-arrow-right'></i></button></div>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
       <div class="edu-div-content">
         <p><b>AM I ELIGIBLE TO DONATE?</b><br>
           Curious about your eligibility to donate blood? Find out if you meet the criteria to make a life-saving contribution.</p>
-        <div><button @click="goToEligibility">Learn More</button></div>
+        <div><button @click="goToEligibility"><i class='fas fa-arrow-right'></i></button></div>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
         <p><b>MALAYSIAN BLOOD DONOR PRIVILEGES</b><br>
           Donating blood just once can save up to 3 lives but did you know regular blood donors get special medical privileges in Malaysia? 
         Click 'Learn More' to explore the health benefits and medical privileges given to blood donors in Malaysia.</p>
-        <div><button @click="goToPerks">Learn More</button></div>
+        <div><button @click="goToPerks"><i class='fas fa-arrow-right'></i></button></div>
       </div>
     </div>
 
@@ -79,7 +79,7 @@ text-align: left;
 }
 .edu-div {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .edu-div-content {
   padding: 15px;
@@ -104,9 +104,9 @@ text-align: left;
   color: white;
   background-color: red;
   font-size: small;
-  padding: 5px 10px;
+  padding: 12px 16px;
   font-style: italic;
-  border-radius: 0;
+  border-radius: 20px;
 }
 .edu-div button:hover {
   color: black;

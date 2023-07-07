@@ -30,7 +30,7 @@
   <!-- is logged in -->
   <div v-else>
     <div>
-      <div style="position: fixed; height:50px; width: 100%; background-color: red;">
+      <div style="z-index: 999; position: fixed; height:50px; width: 100%; background-color: red;">
         &nbsp;
       </div>
     </div>
@@ -48,6 +48,8 @@
 import { auth } from'./firebase/init.js'
 import { signOut } from 'firebase/auth'
 import { useRouter } from 'vue-router';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 export default {
   name: 'App',
   components: { SignupForm, LoginForm, HamburgerMenu },

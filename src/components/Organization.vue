@@ -135,6 +135,7 @@ export default {
 <style>
 .organization {
 padding: 0;
+width: 100%;
 }
 .organization h2 {
 font-size: medium;
@@ -189,13 +190,15 @@ color: grey;
 }
 
 .organization .button {
-  text-align: right;
+text-align: center;
 }
 
 .organization button {
+  width: 50%;
   background-color: red;
   color: #fff;
-  padding: 8px 25px;
+  margin: 10px;
+  padding: 10px 25px;
   border: none;
   cursor: pointer;
 }

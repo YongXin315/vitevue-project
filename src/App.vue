@@ -42,7 +42,6 @@
       -->
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -64,10 +63,21 @@ export default {
       this.displayName = auth.currentUser.displayName
     }
   },
+  mounted() {
+    const lastVisitedPage = localStorage.getItem('lastVisitedPage');
+    if (lastVisitedPage && this.$route.path !== lastVisitedPage) {
+      this.$router.push(lastVisitedPage);
+    }
+  },
   methods:{
     logInOrSignUp() {
       this.isLoggedIn = true;
-      this.$router.push('/home'); // Redirect to the home page
+      const lastVisitedPage = localStorage.getItem('lastVisitedPage');
+      if (lastVisitedPage) {
+        this.$router.push(lastVisitedPage);
+      } else {
+        this.$router.push('/home');
+      }
     },
     logOut(){
       signOut(auth)
@@ -83,7 +93,7 @@ export default {
 
 <style>
 #app1 {
-padding: 10px 30px;
+padding: 10px 20px;
 padding-top: 50px;
 background-color: #f9f9f9;
 height: 100%;

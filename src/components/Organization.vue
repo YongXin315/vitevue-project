@@ -160,23 +160,25 @@ color: grey;
 .organization .form input {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #F2F2F2;
-  height: 20px;
+  height: 28px;
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
   resize: none;
   font-size: small;
+  border-radius: 6px;
 }
 
 .organization .form textarea {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #F2F2F2;
-  height: 50px;
+  height: 70px;
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
   resize: none;
   font-size: small;
+  border-radius: 6px;
 }
 
 .organization small {

@@ -7,6 +7,7 @@
     <p class="join">
       Together, we can make a difference and help those in need.<br>Join us in the noble cause of donating blood!
     </p>
+    <Community />
     <div class="createcamp">
       <p style="font-size: medium; font-weight: bold;">Blood Donation Campaign</p>
       <p>We welcome collaboration with any organization to do blood donation campaign</p>
@@ -21,8 +22,9 @@
 <script>
 import Discover from '../components/Discover.vue';
 import Education from '../Education.vue';
+import Community from './Community.vue';
 export default {
-    components: { Discover, Education },
+    components: { Discover, Education, Community },
     methods: {
         goToOrganization() {
         this.$router.push('/home/organization');

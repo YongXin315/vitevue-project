@@ -161,11 +161,9 @@ text-align: left;
 padding: 10px;
 padding-left: 0;
 }
-
 .organization label {
 font-weight: normal;
 }
-
 .organization .form input {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 border: 1px solid #f0f0f0;
@@ -194,18 +192,15 @@ font-size: small;
 border-radius: 10px;
 background-color: #f0f0f0;
 }
-
 .organization small {
 display: block;
 margin-top: -10px;
 margin-bottom: 10px;
 color: #777;
 }
-
 .organization .button {
 text-align: center;
 }
-
 .organization button {
 width: 50%;
 background-color: red;

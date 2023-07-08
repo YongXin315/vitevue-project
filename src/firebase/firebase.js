@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDSFUoWNmdlw4OyCK89i5DCX1MvSkZyo6E",
   authDomain: "blood-bank-vue.firebaseapp.com",
-  databaseURL: "https://blood-bank-vue-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL: "https://blood-bank-vue-default-rtdb.asia-southeast1.firebasedatabase.app/",
   projectId: "blood-bank-vue",
   storageBucket: "blood-bank-vue.appspot.com",
   messagingSenderId: "1005473572226",
@@ -17,7 +17,27 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 
-export function createUser(name, phone, email, street, city, state, postalcode, message, campname, info, startDate, endDate, time1, time2, venue) {
+export function createUser(
+  name,
+  phone,
+  email,
+  street,
+  city,
+  state,
+  postalcode,
+  message,
+  campname,
+  info,
+  startDate,
+  endDate,
+  time1,
+  time2,
+  venue,
+  name2,
+  phone2,
+  email2,
+  message2
+) {
   const userDocument = {
     Name: name,
     Phone: phone,
@@ -34,13 +54,25 @@ export function createUser(name, phone, email, street, city, state, postalcode, 
     StartTime: time1,
     EndTime: time2,
     Venue: venue,
+    Name2: name2,
+    Phone2: phone2,
+    Email2: email2,
+    Message2: message2,
   };
 
-  addDoc(collection(db,"Apply2"),userDocument)
+  setDoc(doc(db, "contact", userDocument.Name2), userDocument)
     .then(() => {
       console.log("Document successfully written!");
     })
     .catch((error) => {
-      console.error("Error writing document:",error);
+      console.error("Error writing document: ", error);
+    });
+
+  addDoc(collection(db, "Apply2"), userDocument)
+    .then(() => {
+      console.log("Document successfully written!");
+    })
+    .catch((error) => {
+      console.error("Error writing document:", error);
     });
 }

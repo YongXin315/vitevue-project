@@ -1,17 +1,9 @@
 <script setup>
   import SignupForm from './components/SignupForm.vue'
   import LoginForm from './components/LoginForm.vue'
-  import Discover from './components/Discover.vue'
-  import Education from './Education.vue'
   import { RouterLink } from 'vue-router'
   //import GoogleMap from './components/GoogleMap.vue'
-  import Campaign from './components/Campaign.vue'
-  import Organization from './components/Organization.vue'
-  import Maptest from './components/maptest.vue'
   import HamburgerMenu from './components/HamburgerMenu.vue'
-  import Community from './components/Community.vue'
-  import Home from './components/Home.vue'
-
 </script>
 
 <template>

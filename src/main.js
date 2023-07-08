@@ -11,6 +11,7 @@ import Education from './Education.vue';
 import Home from './components/Home.vue';
 import Organization from './components/Organization.vue';
 import Discover from './components/Discover.vue';
+import Contact from './components/Contact.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -31,6 +32,7 @@ const router = createRouter({
       { path: '/education/eligibility', component: Eligibility },
       { path: '/education/perks', component: Perks },
       { path: '/campaign', component: Campaign },
+      { path: '/education/faq/contact', component: Contact },
     ]
   });
 

@@ -3,20 +3,28 @@
       <br>
       <img :src="imagePaths.faqicon" alt="FAQ Icon">
       <br>
-      <b>Frequently Asked Questions</b><br><br>
+      <b>Frequently Asked Questions</b>
+      <p style="font-size: small; text-align: center;">Straightforward answers to common questions about blood donation.</p>
+      <br>
       <div>
         <input class="search" type="text" v-model="searchQuery" placeholder=" Enter your question">
-          <div v-for="item in filteredItems" :key="item.id" class="faqborder">
-            <div class="title" :class="{'open':item.showContent}" @click="toggleContent(item.id)">
-                {{ item.title }}
-                <span class="toggleIcon">
-                  {{ item.showContent ? '-' : '+' }}
-                </span>
-            </div>
-            <div class="content-edu" v-if="item.showContent">
-                {{ item.content }}
-            </div>
+        <div v-for="item in filteredItems" :key="item.id" class="faqborder">
+          <div class="title" :class="{'open':item.showContent}" @click="toggleContent(item.id)">
+              {{ item.title }}
+              <span class="toggleIcon">
+                {{ item.showContent ? '-' : '+' }}
+              </span>
           </div>
+          <div class="content-edu" v-if="item.showContent">
+              {{ item.content }}
+          </div>
+        </div>
+        <br>
+        <div>
+          <p style="font-size: small; padding: 0 35px; color: grey;">
+            <i class="fa fa-search" style="font-size: 35px;"></i><br>Could not find your questions?<br>
+          Send us your questions at <span style="color: red;" @click="goToContact">HERE</span>.</p>
+        </div>
       </div>
     </div>
 </template>
@@ -120,7 +128,10 @@ export default {
           item.showContent = false;
         }
       });
-    }
+    },
+    goToContact() {
+      this.$router.push('/education/faq/contact');
+    },
   }
 };
 </script>

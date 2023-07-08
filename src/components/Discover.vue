@@ -97,6 +97,7 @@ font-weight: bold;
 .discover a { 
 text-decoration: none;
 color: grey;
+font-weight: normal;
 }
 
 .discover a:hover {

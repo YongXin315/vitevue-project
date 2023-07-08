@@ -9,6 +9,30 @@
       Together, we can make a difference and help those in need.<br>Join us in the noble cause of donating blood!
     </p>
     <Community />
+
+    <table>
+      <tr>
+        <td style="padding: 0; padding-right: 5px; width: 50%;">
+          <div class="viewcamp" @click="goToCampaign">
+          <p style="font-size: medium; font-weight: bold;">View Campaign</p>
+          <p style="font-size: smaller;">View blood donation campaigns held near you.</p>
+          <div class="button">
+            <button>View</button>
+          </div>
+          </div>
+        </td>
+        <td style="padding: 0; padding-left: 5px; width: 50%">
+          <div class="createcamp" @click="goToOrganization">
+          <p style="font-size: medium; font-weight: bold;">Create Campaign</p>
+          <p style="font-size: smaller;">We welcome collaboration with any organization to do blood donation campaign.</p>
+          <div class="button">
+            <button>Create</button>
+          </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <br>
     <div class="homenews">
       <h2 class="homenewstitle">HIGHLIGHTS
         <span style="float: right" @click="goToDiscover">See More <i class='fas fa-angle-double-right'></i></span>
@@ -24,28 +48,6 @@
     </div>
     </div>
     
-    <table>
-      <tr>
-        <td style="padding: 0; padding-right: 5px; width: 50%;">
-          <div class="viewcamp" @click="goToCampaign">
-          <p style="font-size: medium; font-weight: bold;">View Campaign</p>
-          <p>View blood donation campaigns held near you.</p>
-          <div class="button">
-            <button>View</button>
-          </div>
-          </div>
-        </td>
-        <td style="padding: 0; padding-left: 5px; width: 50%">
-          <div class="createcamp" @click="goToOrganization">
-          <p style="font-size: medium; font-weight: bold;">Create Campaign</p>
-          <p>We welcome collaboration with any organization to do blood donation campaign.</p>
-          <div class="button">
-            <button>Create</button>
-          </div>
-          </div>
-        </td>
-      </tr>
-    </table>
     
     <div class="homeedu">
       <h2 style="text-align: left; font-size: medium;">WHY BLOOD?</h2>
@@ -76,7 +78,7 @@
           </tr>
         </table>
       </div>
-      <div class="content">
+      <div class="content" @click="goToFAQ">
         <table width="100%">
           <tr>
             <td width="35px" style="text-align: left;"><img :src="imagePaths.faqicon" alt="FAQ Icon"></td>
@@ -130,11 +132,11 @@ export default {
     data() {
       return {
         imagePaths: {
-        bticon: bticon,
-        eliicon: eliicon,
-        privileges: privileges,
-        faqicon: faqicon,
-      },
+          bticon: bticon,
+          eliicon: eliicon,
+          privileges: privileges,
+          faqicon: faqicon,
+        },
       }
     }
 }
@@ -147,7 +149,6 @@ export default {
   color: #ffa07a;
   text-align: center;
 }
-
 .homecomm .join {
   font-size: 1.3rem;
   color: #f08080;
@@ -156,22 +157,20 @@ export default {
 }
 .homecomm .createcamp {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-color: white;
 line-height: normal;
 font-size: small;
 padding: 10px;
-background-image: linear-gradient(rgb(255, 115, 0),rgb(128, 78, 49));
+background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 170, 120));
 border-radius: 10px;
 height: 200px;
 position: relative;
 }
 .homecomm .viewcamp {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-color: white;
 line-height: normal;
 font-size: small;
 padding: 10px;
-background-image: linear-gradient(red,rgb(128, 49, 49));
+background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 146, 146));
 border-radius: 10px;
 height: 200px;
 position: relative;
@@ -181,7 +180,6 @@ font-size: medium;
 text-align: left;
 }
 .homenews span {
-font-style: italic;
 font-weight: normal;
 font-size: small;
 color: red;
@@ -228,14 +226,12 @@ right: 12px;
 }
 .createcamp button, .viewcamp button {
 background-color: white;
-color: black;
 font-size: small;
 font-style: italic;
 margin-top: 6px;
 margin-bottom: 6px;
 border-radius: 15px;
 width: 100px;
-mix-blend-mode: screen;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .homecomm .welcome {

@@ -1,62 +1,63 @@
 <template>
-    <div class="camptest">
-      <input class="search" type="text" v-model="searchQuery" placeholder="Search by location" />
-      <label><i class="fa fa-filter"></i>&nbsp;&nbsp;</label>
-      <input class="date" type="date" v-model="searchDate" />
+  <div class="camptest">
+    <br>
+    <input class="search" type="text" v-model="searchQuery" placeholder="Search by location" />
+    <label><i class="fa fa-filter"></i>&nbsp;&nbsp;</label>
+    <input class="date" type="date" v-model="searchDate" />
+
+    <ul>
+      <li v-for="campaign in filteredCampaigns" :key="campaign.id">
+          <h3>{{ campaign.name }}</h3>
+          <p class="camporganizer">by {{ campaign.description }}</p>
+          <p><span class="data">Address</span><br> {{ campaign.location }}</p>
+          <p><span class="data">Date</span><br> {{ campaign.startDate }} to {{ campaign.endDate }}</p>
+          <div style="width: 100%; text-align: right; margin-bottom: 3px;">
+              <a class="register" href= "https://forms.gle/znWG6ZWZZXfAoLXN6" target="_blank">Register</a>
+          </div>
+      </li>
+    </ul>
+  </div>
+</template>
   
-      <ul>
-        <li v-for="campaign in filteredCampaigns" :key="campaign.id">
-            <h3>{{ campaign.name }}</h3>
-            <p class="camporganizer">by {{ campaign.description }}</p>
-            <p><span class="data">Address</span><br> {{ campaign.location }}</p>
-            <p><span class="data">Date</span><br> {{ campaign.startDate }} to {{ campaign.endDate }}</p>
-            <div style="width: 100%; text-align: right; margin-bottom: 3px;">
-                <a class="register" href= "https://forms.gle/znWG6ZWZZXfAoLXN6" target="_blank">Register</a>
-            </div>
-        </li>
-      </ul>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        searchQuery: '',
-        searchDate: '',
-        campaigns: [
-          {
-            id: 1,
-            name: "Blood Donation Week at Taylor's University",
-            location: '1, Jln Taylors, 47500 Subang Jaya, Selangor',
-            startDate: '2023-08-17',
-            endDate: '2023-08-25',
-            description: 'PUSAT DARAH NEGARA',
-          },
-          {
-            id: 2,
-            name: 'Blood Donation Week at IOI City Mall',
-            location: 'City Sepang, 2AT-3A, Level 3, IOI City Mall, Lbh IRC, Ioi Resort, 62502 Putrajaya',
-            startDate: '2023-07-22',
-            endDate: '2023-07-29',
-            description: 'PUSAT KOMUNITI ST JOHN AMBULANS MALAYSIA',
-          },
-          // Add more campaign data here
-        ],
-      };
+<script>
+export default {
+  data() {
+    return {
+      searchQuery: '',
+      searchDate: '',
+      campaigns: [
+        {
+          id: 1,
+          name: "Blood Donation Week at Taylor's University",
+          location: '1, Jln Taylors, 47500 Subang Jaya, Selangor',
+          startDate: '2023-08-17',
+          endDate: '2023-08-25',
+          description: 'PUSAT DARAH NEGARA',
+        },
+        {
+          id: 2,
+          name: 'Blood Donation Week at IOI City Mall',
+          location: 'City Sepang, 2AT-3A, Level 3, IOI City Mall, Lbh IRC, Ioi Resort, 62502 Putrajaya',
+          startDate: '2023-07-22',
+          endDate: '2023-07-29',
+          description: 'PUSAT KOMUNITI ST JOHN AMBULANS MALAYSIA',
+        },
+        // Add more campaign data here
+      ],
+    };
+  },
+  computed: {
+    filteredCampaigns() {
+      return this.campaigns.filter((campaign) => {
+        const locationMatch = campaign.location.toLowerCase().includes(this.searchQuery.toLowerCase());
+        const dateMatch = !this.searchDate || (this.searchDate >= campaign.startDate && this.searchDate <= campaign.endDate);
+
+        return locationMatch && dateMatch;
+      });
     },
-    computed: {
-      filteredCampaigns() {
-        return this.campaigns.filter((campaign) => {
-          const locationMatch = campaign.location.toLowerCase().includes(this.searchQuery.toLowerCase());
-          const dateMatch = !this.searchDate || (this.searchDate >= campaign.startDate && this.searchDate <= campaign.endDate);
-  
-          return locationMatch && dateMatch;
-        });
-      },
-    },
-  };
-  </script>
+  },
+};
+</script>
 
 <style>
 .camptest {

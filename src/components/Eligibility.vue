@@ -1,5 +1,6 @@
 <template>
     <div class="eligibility">
+        <br>
         <img :src="imagePaths.eliicon" alt="Eligibility Icon">
         <br>
         <b>Blood Donation Eligibility Requirements</b>

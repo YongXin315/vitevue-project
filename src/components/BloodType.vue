@@ -1,5 +1,6 @@
 <template>
     <div class="bloodtype-table">
+      <br>
       <img :src="imagePaths.bticon" alt="Blood Type Icon">
       <br>
       <b>Matching Blood Types</b>

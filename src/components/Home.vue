@@ -93,22 +93,24 @@ export default {
   font-weight: bold;
 }
 .homecomm .createcamp {
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 color: white;
 line-height: normal;
 font-size: small;
 padding: 10px;
 background-image: linear-gradient(rgb(255, 115, 0),rgb(128, 78, 49));
-border-radius: 15px;
+border-radius: 10px;
 height: 200px;
 position: relative;
 }
 .homecomm .viewcamp {
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 color: white;
 line-height: normal;
 font-size: small;
 padding: 10px;
 background-image: linear-gradient(red,rgb(128, 49, 49));
-border-radius: 15px;
+border-radius: 10px;
 height: 200px;
 position: relative;
 }
@@ -172,6 +174,7 @@ margin-bottom: 6px;
 border-radius: 15px;
 width: 100px;
 mix-blend-mode: screen;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .homecomm .welcome {
 text-align: left;

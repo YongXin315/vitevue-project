@@ -1,5 +1,6 @@
 <template>
     <div class="faq">
+      <br>
       <img :src="imagePaths.faqicon" alt="FAQ Icon">
       <br>
       <b>Frequently Asked Questions</b><br><br>

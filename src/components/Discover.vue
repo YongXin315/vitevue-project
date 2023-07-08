@@ -1,6 +1,6 @@
 <template>
   <div class="discover">
-    <h1>Hightlights</h1>
+    <h1>DISCOVER NEWS HERE</h1>
 
     <div class="section">
       <a href= "https://www.freemalaysiatoday.com/category/leisure/2021/08/10/a-guide-to-donating-blood-for-the-first-time/" target="_blank"><img src="https://media.freemalaysiatoday.com/wp-content/uploads/2021/06/03-BLOOD-DONATION-.jpg" width="100%" 

@@ -1,5 +1,6 @@
 <template>
     <div class="perks">
+      <br>
       <img :src="imagePaths.privileges" alt="Privilege Icon">
       <br>
       <b>Malaysian Blood Donor Privileges</b>

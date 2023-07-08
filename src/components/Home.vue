@@ -160,20 +160,24 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 line-height: normal;
 font-size: small;
 padding: 10px;
+padding-left: 15px;
 background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 170, 120));
 border-radius: 10px;
-height: 170px;
+height: 150px;
 position: relative;
+text-align: left;
 }
 .homecomm .viewcamp {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 line-height: normal;
 font-size: small;
 padding: 10px;
+padding-left: 15px;
 background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 146, 146));
 border-radius: 10px;
-height: 170px;
+height: 150px;
 position: relative;
+text-align: left;
 }
 .homenews .homenewstitle {
 font-size: medium;

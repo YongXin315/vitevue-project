@@ -46,18 +46,58 @@
         </td>
       </tr>
     </table>
-      
     
-    <Education />
+    <div class="homeedu">
+      <h2 style="text-align: left; font-size: medium;">WHY BLOOD?</h2>
+      <div class="content"  @click="goToBloodType">
+        <table width="100%">
+          <tr>
+            <td width="35px" style="text-align: left;"><img :src="imagePaths.bticon" alt="Blood Type Icon"></td>
+            <td style="text-align: left;"><p>Matching Blood Types</p></td>
+            <td style="text-align: right;"><button><i class='fas fa-arrow-right' style="font-size: large;"></i></button></td>
+          </tr>
+        </table>
+      </div>
+      <div class="content" @click="goToEligibility">
+        <table width="100%">
+          <tr>
+            <td width="35px" style="text-align: left;"><img :src="imagePaths.eliicon" alt="Eligibility Icon"></td>
+            <td style="text-align: left;"><p>Blood Donor Eligibility Criteria</p></td>
+            <td style="text-align: right;"><button><i class='fas fa-arrow-right' style="font-size: large;"></i></button></td>
+          </tr>
+        </table>
+      </div>
+      <div class="content" @click="goToPerks">
+        <table width="100%">
+          <tr>
+            <td width="35px" style="text-align: left;"><img :src="imagePaths.privileges" alt="Privilege Icon"></td>
+            <td style="text-align: left;"><p>Blood Donor Privileges</p></td>
+            <td style="text-align: right;"><button><i class='fas fa-arrow-right' style="font-size: large;"></i></button></td>
+          </tr>
+        </table>
+      </div>
+      <div class="content">
+        <table width="100%">
+          <tr>
+            <td width="35px" style="text-align: left;"><img :src="imagePaths.faqicon" alt="FAQ Icon"></td>
+            <td style="text-align: left;"><p>Frequently Asked Questions</p></td>
+            <td style="text-align: right;"><button><i class='fas fa-arrow-right' style="font-size: large;"></i></button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Education from '../Education.vue';
 import Community from './Community.vue';
+import bticon from '../assets/bt-icon.png';
+import eliicon from '../assets/eli-icon.png';
+import privileges from '../assets/perks-privilege.png';
+import faqicon from '../assets/faq-icon.png';
 
 export default {
-    components: { Education, Community },
+    components: { Community },
     props: {
       displayName: {
         type: String,
@@ -73,7 +113,29 @@ export default {
         },
         goToCampaign() {
           this.$router.push('/campaign');
+        },
+        goToBloodType() {
+          this.$router.push('/education/bloodtype');
+        },
+        goToEligibility() {
+          this.$router.push('/education/eligibility');
+        },
+        goToPerks() {
+          this.$router.push('/education/perks');
+        },
+        goToFAQ() {
+          this.$router.push('/education/faq');
         }
+    },
+    data() {
+      return {
+        imagePaths: {
+        bticon: bticon,
+        eliicon: eliicon,
+        privileges: privileges,
+        faqicon: faqicon,
+      },
+      }
     }
 }
 </script>
@@ -178,6 +240,34 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .homecomm .welcome {
 text-align: left;
+}
+.homeedu .content {
+background-color: white;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+padding: 15px;
+margin-bottom: 10px;
+border-radius: 10px;
+display: flex;
+justify-content: left;
+align-items: center;
+}
+.homeedu .content p {
+font-weight: bold;
+font-size: small;
+margin: 0;
+text-align: left;
+display: inline;
+}
+.homeedu .content table tr td {
+padding: 0;
+}
+.homeedu .content img {
+height: 30px;
+width: 30px;
+}
+.homeedu .content button {
+padding: 0;
+background-color: transparent;
 }
 </style>
 

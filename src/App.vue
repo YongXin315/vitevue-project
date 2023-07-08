@@ -86,5 +86,6 @@ export default {
 padding: 10px 20px;
 padding-top: 50px;
 height: 100%;
+background-color: #f9f9f9;
 }
 </style>

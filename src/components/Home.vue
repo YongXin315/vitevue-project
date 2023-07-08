@@ -1,5 +1,6 @@
 <template>
   <div class="homecomm">
+    <h2 class="welcome">Welcome, {{ displayName }}</h2>
     <h1 class="">Welcome to the Blood Donation Community</h1>
     <p class="description">
       This app is dedicated to promoting blood donation<br>and raising awareness about its importance in saving lives.
@@ -22,11 +23,31 @@
       </a></p>
     </div>
     </div>
-    <div class="createcamp">
-      <p style="font-size: medium; font-weight: bold;">Blood Donation Campaign</p>
-      <p>We welcome collaboration with any organization to do blood donation campaign.</p>
-      <button @click="goToOrganization">Create Camp Now</button>
-    </div>
+    
+    <table>
+      <tr>
+        <td style="padding: 0; padding-right: 5px; width: 50%;">
+          <div class="viewcamp" @click="goToCampaign">
+          <p style="font-size: medium; font-weight: bold;">View Campaign</p>
+          <p>View blood donation campaigns held near you.</p>
+          <div class="button">
+            <button>View</button>
+          </div>
+          </div>
+        </td>
+        <td style="padding: 0; padding-left: 5px; width: 50%">
+          <div class="createcamp" @click="goToOrganization">
+          <p style="font-size: medium; font-weight: bold;">Create Campaign</p>
+          <p>We welcome collaboration with any organization to do blood donation campaign.</p>
+          <div class="button">
+            <button>Create</button>
+          </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+      
+    
     <Education />
   </div>
 </template>
@@ -34,14 +55,24 @@
 <script>
 import Education from '../Education.vue';
 import Community from './Community.vue';
+
 export default {
     components: { Education, Community },
+    props: {
+      displayName: {
+        type: String,
+        required: true,
+      },
+    },
     methods: {
         goToOrganization() {
           this.$router.push('/home/organization');
         },
         goToDiscover() {
           this.$router.push('/highlight');
+        },
+        goToCampaign() {
+          this.$router.push('/campaign');
         }
     }
 }
@@ -66,8 +97,20 @@ color: white;
 line-height: normal;
 font-size: small;
 padding: 10px;
+background-image: linear-gradient(rgb(255, 115, 0),rgb(128, 78, 49));
+border-radius: 15px;
+height: 200px;
+position: relative;
+}
+.homecomm .viewcamp {
+color: white;
+line-height: normal;
+font-size: small;
+padding: 10px;
 background-image: linear-gradient(red,rgb(128, 49, 49));
 border-radius: 15px;
+height: 200px;
+position: relative;
 }
 .homenews .homenewstitle {
 font-size: medium;
@@ -113,14 +156,25 @@ font-weight: normal;
 .homenews a:hover {
 text-decoration: underline;
 }
-.createcamp button {
-background-color: black;
-color: white;
+.createcamp .button, .viewcamp .button {
+height: 50px;
+position: absolute;
+bottom: 5px;
+right: 12px;
+}
+.createcamp button, .viewcamp button {
+background-color: white;
+color: black;
 font-size: small;
+font-style: italic;
 margin-top: 6px;
 margin-bottom: 6px;
-padding: 7px 25px;
 border-radius: 15px;
+width: 100px;
+mix-blend-mode: screen;
+}
+.homecomm .welcome {
+text-align: left;
 }
 </style>
 

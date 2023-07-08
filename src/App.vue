@@ -35,8 +35,7 @@
       </div>
     </div>
     <div id="app1">
-      <h2 class="welcome">Welcome, {{ displayName }}</h2>
-      <router-view></router-view>
+      <router-view :displayName="displayName"></router-view>
       <HamburgerMenu :isLoggedIn="isLoggedIn" @logOut="logOut" />
       <!--<Discover /><GoogleMap /><Organization /><Maptest /><Campaign /><Education /><Home />
       -->
@@ -62,7 +61,7 @@ export default {
   },
   beforeUpdate(){
     if(auth.currentUser){
-      this.displayName = auth.currentUser.displayName
+      this.displayName = auth.currentUser.displayName;
     }
   },
   methods:{
@@ -87,8 +86,5 @@ export default {
 padding: 10px 20px;
 padding-top: 50px;
 height: 100%;
-}
-.welcome {
-text-align: left;
 }
 </style>

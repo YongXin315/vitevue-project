@@ -4,7 +4,7 @@
       <br>
       <b>Frequently Asked Questions</b><br><br>
       <div>
-        <input class="search" type="text" v-model="searchQuery" placeholder="Search your question">
+        <input class="search" type="text" v-model="searchQuery" placeholder=" Enter your question">
           <div v-for="item in filteredItems" :key="item.id" class="faqborder">
             <div class="title" :class="{'open':item.showContent}" @click="toggleContent(item.id)">
                 {{ item.title }}

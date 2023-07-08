@@ -5,39 +5,40 @@
       Fill in the form below to create a new blood donation campaign. Provide detailed information about your campaign and its objectives. 
       This will help users understand the purpose and goals of your campaign. Make sure to fill in all the required fields.
     </p>
+    <div class="formdiv">
     <form @submit.prevent="submitForm" class="form">
         <label for="name">Hospital Name:</label>
-        <input type="text" id="name" v-model="name" required>
+        <input type="text" placeholder="Hospital Name" id="name" v-model="name" required>
 
         <label for="phone">Phone:</label>
-        <input type="tel" id="phone" v-model="phone" required>
+        <input type="tel" placeholder="Phone" id="phone" v-model="phone" required>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" required>
+        <input type="email" placeholder="Email" id="email" v-model="email" required>
         <small>example@example.com</small>
 
         <p style="font-weight:bold; margin: 0;">Location</p>
         <label for="street">Street:</label>
-        <input type="text" id="street" v-model="street" required>
+        <input type="text" placeholder="Street" id="street" v-model="street" required>
 
         <label for="city">City:</label>
-        <input type="text" id="city" v-model="city" required>
+        <input type="text" placeholder="City" id="city" v-model="city" required>
 
         <label for="state">State:</label>
-        <input type="text" id="state" v-model="state" required>
+        <input type="text" placeholder="State" id="state" v-model="state" required>
 
         <label for="postalCode">Postal Code:</label>
-        <input type="text" id="postalCode" v-model="postalcode" required>
+        <input type="text" placeholder="Postal Code" id="postalCode" v-model="postalcode" required>
 
         <label for="message">Message:</label>
-        <textarea id="message" v-model="message"></textarea>
+        <textarea id="message" placeholder="Leave your message here.." v-model="message"></textarea>
 
         <p style="font-weight:bold; margin: 0;">Campaign</p>
         <label for="campname">Camp Name:</label>
-        <input type="text" id="campname" v-model="campname" required>
+        <input type="text" placeholder="Camp Name" id="campname" v-model="campname" required>
 
         <label for="info">Camp Information:</label>
-        <input type="text" id="info" v-model="info" required>
+        <input type="text" placeholder="Camp Information" id="info" v-model="info" required>
 
         <label for="startDate">Start Date of the Campaign:</label>
         <input type="date" id="startDate" v-model="startDate" required>
@@ -52,12 +53,13 @@
         <input type="time" id="time2" v-model="time2" required>
 
         <label for="venue">Campaign Venue:</label>
-        <input type="text" id="venue" v-model="venue" required>
+        <input type="text" placeholder="Full address" id="venue" v-model="venue" required>
 
         <div class="button">
           <button type="submit" id="submit">Submit</button>
         </div>
     </form>
+  </div>
   </div>
 </template>
 
@@ -146,47 +148,58 @@ font-size: small;
 text-align: justify;
 color: grey;
 }
+.organization .formdiv {
+padding: 10px 15px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .organization .form {
-  font-size: 18px;
-  font-size: small;
-  text-align: left;
-  padding: 10px;
-  padding-left: 0;
+font-size: 18px;
+font-size: small;
+text-align: left;
+padding: 10px;
+padding-left: 0;
 }
 
 .organization label {
-  font-weight: normal;
+font-weight: normal;
 }
 
 .organization .form input {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #F2F2F2;
-  height: 28px;
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-  resize: none;
-  font-size: small;
-  border-radius: 6px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border: 1px solid #f0f0f0;
+height: 28px;
+width: 100%;
+padding: 5px;
+margin-bottom: 10px;
+resize: none;
+font-size: small;
+border-radius: 6px;
+background-color: #f0f0f0;
 }
-
+.organization .form ::placeholder {
+font-style: italic;
+font-size: smaller;
+}
 .organization .form textarea {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #F2F2F2;
-  height: 70px;
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-  resize: none;
-  font-size: small;
-  border-radius: 6px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border: 1px solid #f0f0f0;
+height: 70px;
+width: 100%;
+padding: 5px;
+margin-bottom: 10px;
+resize: none;
+font-size: small;
+border-radius: 10px;
+background-color: #f0f0f0;
 }
 
 .organization small {
-  display: block;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  color: #777;
+display: block;
+margin-top: -10px;
+margin-bottom: 10px;
+color: #777;
 }
 
 .organization .button {
@@ -194,13 +207,13 @@ text-align: center;
 }
 
 .organization button {
-  width: 50%;
-  background-color: red;
-  color: #fff;
-  margin: 10px;
-  padding: 10px 25px;
-  border: none;
-  cursor: pointer;
+width: 50%;
+background-color: red;
+color: #fff;
+margin-top: 10px;
+padding: 10px 25px;
+border: none;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 </style>

@@ -2,9 +2,10 @@
     <div class="faq">
       <img :src="imagePaths.faqicon" alt="FAQ Icon">
       <br>
-      <b>Frequently Asked Questions</b>
+      <b>Frequently Asked Questions</b><br><br>
       <div>
-          <div v-for="item in items" :key="item.id" class="faqborder">
+        <input class="search" type="text" v-model="searchQuery" placeholder="Search your question">
+          <div v-for="item in filteredItems" :key="item.id" class="faqborder">
             <div class="title" :class="{'open':item.showContent}" @click="toggleContent(item.id)">
                 {{ item.title }}
                 <span class="toggleIcon">
@@ -95,7 +96,19 @@ export default {
       imagePaths: {
         faqicon: faqicon,
       },
+      searchQuery: '',
     };
+  },
+  computed: {
+    filteredItems() {
+      // Filter the items based on the search query
+      if (this.searchQuery) {
+        const query = this.searchQuery.toLowerCase();
+        return this.items.filter(item => item.title.toLowerCase().includes(query));
+      }
+      // If no search query, return all items
+      return this.items;
+    }
   },
   methods: {
     toggleContent(itemId) {
@@ -115,8 +128,16 @@ export default {
 .faq img {
 height: 50px;
 }
+.faq .search {
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border: 1px solid white;
+border-radius: 7px;
+height: 30px;
+width: 99%;
+margin-bottom: 7px;
+}
 .faq .faqborder {
-padding: 5px;
+padding: 5px 0;
 }
 .faq .toggleIcon {
 font-size: 20px;

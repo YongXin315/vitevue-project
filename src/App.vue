@@ -86,7 +86,6 @@ export default {
 #app1 {
 padding: 10px 20px;
 padding-top: 50px;
-background-color: #f9f9f9;
 height: 100%;
 }
 .welcome {

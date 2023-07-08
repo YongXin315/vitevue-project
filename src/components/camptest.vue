@@ -68,7 +68,7 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 border: 1px solid white;
 border-radius: 7px;
 height: 30px;
-width: 100%;
+width: 99%;
 margin-bottom: 7px;
 }
 .camptest .date {

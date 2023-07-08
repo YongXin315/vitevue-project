@@ -162,7 +162,7 @@ font-size: small;
 padding: 10px;
 background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 170, 120));
 border-radius: 10px;
-height: 200px;
+height: 170px;
 position: relative;
 }
 .homecomm .viewcamp {
@@ -172,7 +172,7 @@ font-size: small;
 padding: 10px;
 background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 146, 146));
 border-radius: 10px;
-height: 200px;
+height: 170px;
 position: relative;
 }
 .homenews .homenewstitle {

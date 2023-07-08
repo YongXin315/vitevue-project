@@ -6,7 +6,7 @@ import FAQ from './components/Faq.vue';
 import BloodType from './components/BloodType.vue';
 import Eligibility from './components/Eligibility.vue';
 import Perks from './components/Perks.vue';
-import Campaign from './components/Campaign.vue';
+import Campaign from './components/camptest.vue';
 import Education from './Education.vue';
 import Home from './components/Home.vue';
 import Organization from './components/Organization.vue';

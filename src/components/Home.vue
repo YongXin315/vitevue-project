@@ -10,24 +10,18 @@
     </p>
     <Community />
 
-    <table>
+    <table style="width: 100%">
       <tr>
         <td style="padding: 0; padding-right: 5px; width: 50%;">
           <div class="viewcamp" @click="goToCampaign">
-          <p style="font-size: medium; font-weight: bold;">View Campaign</p>
-          <p style="font-size: smaller;">View blood donation campaigns held near you.</p>
-          <div class="button">
-            <button>View</button>
-          </div>
+            <img :src="imagePaths.searchIcon" alt="Search Icon" style="height: 40px">
+            <p style="font-size: medium; font-weight: bold;">View Campaign</p>
           </div>
         </td>
         <td style="padding: 0; padding-left: 5px; width: 50%">
-          <div class="createcamp" @click="goToOrganization">
-          <p style="font-size: medium; font-weight: bold;">Create Campaign</p>
-          <p style="font-size: smaller;">We welcome collaboration with any organization to do blood donation campaign.</p>
-          <div class="button">
-            <button>Create</button>
-          </div>
+          <div class="createcamp" @click="goToEducation">
+            <img :src="imagePaths.eduIcon" alt="Knowledge Icon" style="height: 40px">
+            <p style="font-size: medium; font-weight: bold;">View about Blood</p>
           </div>
         </td>
       </tr>
@@ -47,7 +41,6 @@
       </a></p>
     </div>
     </div>
-    
     
     <div class="homeedu">
       <h2 style="text-align: left; font-size: medium;">WHY BLOOD?</h2>
@@ -97,6 +90,8 @@ import bticon from '../assets/bt-icon.png';
 import eliicon from '../assets/eli-icon.png';
 import privileges from '../assets/perks-privilege.png';
 import faqicon from '../assets/faq-icon.png';
+import searchIcon from '../assets/home-search.png';
+import eduIcon from '../assets/home-edu.png';
 
 export default {
     components: { Community },
@@ -107,8 +102,8 @@ export default {
       },
     },
     methods: {
-        goToOrganization() {
-          this.$router.push('/home/organization');
+      goToEducation() {
+          this.$router.push('/education');
         },
         goToDiscover() {
           this.$router.push('/highlight');
@@ -136,6 +131,8 @@ export default {
           eliicon: eliicon,
           privileges: privileges,
           faqicon: faqicon,
+          eduIcon: eduIcon,
+          searchIcon: searchIcon,
         },
       }
     }
@@ -159,25 +156,17 @@ export default {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 line-height: normal;
 font-size: small;
-padding: 10px;
-padding-left: 15px;
+padding: 35px 10px;
 background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 170, 120));
 border-radius: 10px;
-height: 150px;
-position: relative;
-text-align: left;
 }
 .homecomm .viewcamp {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 line-height: normal;
 font-size: small;
-padding: 10px;
-padding-left: 15px;
+padding: 35px 10px;
 background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 146, 146));
 border-radius: 10px;
-height: 150px;
-position: relative;
-text-align: left;
 }
 .homenews .homenewstitle {
 font-size: medium;
@@ -207,36 +196,17 @@ line-height: 1.5;
 font-size: small;
 text-align: justify;
 }
-
 .homenews .click {
 color: blue;
 font-weight: bold;
 }
-
 .homenews a { 
 text-decoration: none;
 color: grey;
 font-weight: normal;
 }
-
 .homenews a:hover {
 text-decoration: underline;
-}
-.createcamp .button, .viewcamp .button {
-height: 50px;
-position: absolute;
-bottom: 5px;
-right: 12px;
-}
-.createcamp button, .viewcamp button {
-background-color: white;
-font-size: small;
-font-style: italic;
-margin-top: 6px;
-margin-bottom: 6px;
-border-radius: 15px;
-width: 100px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .homecomm .welcome {
 text-align: left;

@@ -2,6 +2,7 @@
   <div class="organization">
     <h2>Create a Campaign</h2>
     <p class="description">
+      We welcome collaboration with any organization to do blood donation campaign.<br>
       Fill in the form below to create a new blood donation campaign. Provide detailed information about your campaign and its objectives. 
       This will help users understand the purpose and goals of your campaign. Make sure to fill in all the required fields.
     </p>

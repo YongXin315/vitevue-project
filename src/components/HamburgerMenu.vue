@@ -10,6 +10,7 @@
           <li @click="navigate('/highlight')">Highlights</li>
           <li @click="navigate('/education')">Why Blood?</li>
           <li @click="navigate('/campaign')">Campaign</li>
+          <li @click="navigate('/organization')">Create Camp</li>
           <li @click="navigate('/profile')">Profile</li>
           <li v-if="isLoggedIn" @click="logOut">Sign Out</li>
         </ul>
@@ -65,12 +66,10 @@ top: 15px;
 left: 15px;
 z-index: 999;
 }
-
 .line {
 height: 3px;
 background-color: #333;
 }
-
 .sidebar {
 width: 200px;
 height: 100%;
@@ -80,17 +79,14 @@ left: -200px;
 background-color: #f2f2f2;
 transition: left 0.3s ease;
 }
-
 .sidebar.open {
 left: 0;
 }
-
 ul {
 list-style-type: none;
 padding: 0;
 padding-top: 40px;
 }
-
 li {
 padding: 10px;
 border-bottom: 1px solid #ccc;

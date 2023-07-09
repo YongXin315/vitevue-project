@@ -98,9 +98,15 @@ export default {
         {
           id: 11,
           title: "11. What will be done to the donated blood?",
-          content: "Your blood will be tested to determine blood group, viral infwhich is used in 22 blood collection centers nationwideections such as syphilis, hepatitis (B & C) and AIDS (HIV). Then, stored for patient use. Blood can also be separated into several blood components and can be used to treat more than one patient.",
+          content: "Your blood will be tested to determine blood group, viral in which is used in 22 blood collection centers nationwideections such as syphilis, hepatitis (B & C) and AIDS (HIV). Then, stored for patient use. Blood can also be separated into several blood components and can be used to treat more than one patient.",
           showContent: false
-        }
+        },
+        {
+          id: 12,
+          title: "12. How I reset password if I forgot my password?",
+          content: "For security purpose, kindly send an e-mail to community@admin.com",
+          showContent: false
+        },
       ],
       imagePaths: {
         faqicon: faqicon,

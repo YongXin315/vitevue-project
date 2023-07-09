@@ -7,7 +7,7 @@
       <input type="password" class="input" placeholder="Password" required v-model="password"
         style="border-radius: 10px;"><br>
       <div class="phone-input">
-        <select v-model="countryCode" class="input" type="countryCode" style="border-radius: 10px; width:60px; margin-right: 8px;" required>
+        <select v-model="countryCode" class="input" type="countryCode" style="height: 38px; border-radius: 10px; width: 55px;px; margin-right: 8px;" required>
           <option value="+60">+60</option>
           <option value="+65">+65</option>
           <option value="+62">+62</option>
@@ -17,10 +17,10 @@
           <option value="+91">+91</option>
         </select>
         <input type="tel" class="input" placeholder="Phone Number" required v-model="phone"
-          style="border-radius: 10px; width:100px">
+          style="border-radius: 10px; width:95px">
       </div>
       <div class="text">
-        <span style='font-size:15px;'>DOB:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span style='font-size:15px;'>DOB:&nbsp;&nbsp;&nbsp;</span>
         <input type="date" class="input" placeholder="Date of Birth" required v-model="dob"
           style="border-radius: 10px;"><br>
       </div>

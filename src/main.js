@@ -12,6 +12,7 @@ import Home from './components/Home.vue';
 import Organization from './components/Organization.vue';
 import Discover from './components/Discover.vue';
 import Contact from './components/Contact.vue';
+import Profile from './components/Profile.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -33,6 +34,7 @@ const router = createRouter({
       { path: '/education/perks', component: Perks },
       { path: '/campaign', component: Campaign },
       { path: '/education/faq/contact', component: Contact },
+      { path: '/profile', component: Profile },
     ]
   });
 

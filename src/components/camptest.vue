@@ -18,13 +18,13 @@
           </div>
       </li>
     </ul>
-    <div v-else style="color: grey; text-align: center; font-size: small;">
+    <div v-else style="margin-top: 20px; margin-bottom: 20px; color: grey; text-align: center; font-size: small;">
       <i class="fa fa-search" style="font-size: 35px;"></i><br>
       No results found.
     </div>
   </div>
 </template>
-  
+
 <script>
 import MapTest from '../components/maptest.vue';
 export default {

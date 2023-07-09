@@ -58,7 +58,7 @@ export default {
 
       props.filteredCampaigns.forEach((campaign) => {
         const infoWindow = new google.maps.InfoWindow({
-          content: `<h3>${campaign.name}</h3><p>${campaign.description}</p>`,
+          content: `<h3>${campaign.name}</h3><p>Date: ${campaign.startDate} to ${campaign.endDate}</p>`,
         });
 
         const position = new google.maps.LatLng(campaign.latitude, campaign.longitude);

@@ -2,7 +2,7 @@
   <div class="camptest">
     <br>
     <h1 class="title">Discover</h1>
-    <MapTest /><br>
+    <MapTest :filteredCampaigns="filteredCampaigns" /><br>
     <input class="search" type="text" v-model="searchQuery" placeholder=" Search by location" />
     <label><i class="fa fa-filter"></i>&nbsp;&nbsp;</label>
     <input class="date" type="date" v-model="searchDate" />
@@ -44,6 +44,8 @@ export default {
           formUrls: [
             { id: 1, url: 'https://forms.gle/znWG6ZWZZXfAoLXN6' },
           ],
+          latitude: 3.06484594571016,
+          longitude: 101.61692563544386
         },
         {
           id: 2,
@@ -55,6 +57,8 @@ export default {
           formUrls: [
             { id: 2, url: 'https://forms.gle/6DCNrWcpjiiDTVZSA' },
           ],
+          latitude: 2.970786212821712,
+          longitude: 101.7137324675521
         },
         {
           id: 3,
@@ -66,6 +70,8 @@ export default {
           formUrls: [
             { id: 3, url: 'https://forms.gle/rfbBYvxGLepFSGPc7' },
           ],
+          latitude: 3.1856896992217107,
+          longitude: 101.63501319960115
         },
         {
           id: 4,
@@ -77,6 +83,8 @@ export default {
           formUrls: [
             { id: 4, url: 'https://forms.gle/ppf4aaGm453Cx6Gy9' },
           ],
+          latitude: 3.05032462984594, 
+          longitude: 101.6709347088716
         },
         {
           id: 5,
@@ -88,6 +96,7 @@ export default {
           formUrls: [
             { id: 5, url: 'https://forms.gle/UnBSFTCa58vzhPCE9' },
           ],
+          latitude: 3.072168678003126, longitude: 101.60651263901032
         },
         {
           id: 6,
@@ -99,6 +108,7 @@ export default {
           formUrls: [
             { id: 6, url: 'https://forms.gle/JSnk7ABbLpbfMWnm8' },
           ],
+          latitude: 2.970786212821712, longitude: 101.7137324675521
         },
         {
           id: 7,
@@ -110,6 +120,7 @@ export default {
           formUrls: [
             { id: 7, url: 'https://forms.gle/MrhdMDwWZrDPuVCC7' },
           ],
+          latitude: 3.1178008669063475, longitude: 101.67829379439459
         },
         {
           id: 8,
@@ -121,6 +132,7 @@ export default {
           formUrls: [
             { id: 8, url: 'https://forms.gle/k95mZQmoEUxSgdWX6' },
           ],
+          latitude: 3.072423538426663, longitude: 101.60711634232759
         },
         {
           id: 9,
@@ -132,6 +144,7 @@ export default {
           formUrls: [
             { id: 9, url: 'https://forms.gle/SakCZcrduTZRuQGa8' },
           ],
+          latitude: 3.06484594571016, longitude: 101.61692563544386
         },
         {
           id: 10,
@@ -143,6 +156,7 @@ export default {
           formUrls: [
           { id: 10, url: 'https://forms.gle/XrkqcNnzeSU3bWXT7' },
           ],
+          latitude: 3.1096774042592807, longitude: 101.46019634232759
         },
         {
           id: 11,
@@ -154,6 +168,7 @@ export default {
           formUrls: [
             { id: 11, url: 'https://forms.gle/FzcWpoaZqUy8oedx8' },
           ],
+          latitude: 3.065219035588563, longitude: 101.60088926556641
         },
         {
           id: 12,
@@ -165,6 +180,7 @@ export default {
           formUrls: [
             { id: 12, url: 'https://forms.gle/UWN12v8CkMamKEgq7' },
           ],
+          latitude: 3.028803020070358, longitude: 101.71924683068966
         },
         {
           id: 13,
@@ -176,6 +192,7 @@ export default {
           formUrls: [
             { id: 13, url: 'https://forms.gle/bcorf17t7nqPQSTr6' },
           ],
+          latitude: 3.1491803090213537, longitude: 101.71339104232759
         },
         {
           id: 14,
@@ -187,6 +204,7 @@ export default {
           formUrls: [
             { id: 14, url: 'https://forms.gle/FTUozNa4UDfp7L5B6' },
           ],
+          latitude: 3.1491803090213537, longitude: 101.71339104232759
         },
         {
           id: 15,
@@ -198,6 +216,7 @@ export default {
           formUrls: [
             { id: 15, url: 'https://forms.gle/cSZxT2ycooRb4vKX7' },
           ],
+          latitude: 3.1491803090213537, longitude: 101.71339104232759
         },
         {
           id: 16,
@@ -209,6 +228,7 @@ export default {
           formUrls: [
             { id: 16, url: 'https://forms.gle/oHXHXvsjex68p48Y9' },
           ],
+          latitude: 2.970786212821712, longitude: 101.7137324675521
         },
         {
           id: 17,
@@ -220,6 +240,7 @@ export default {
           formUrls: [
             { id: 17, url: 'https://forms.gle/fFEwsmKnD51GDSbd8' },
           ],
+          latitude: 3.1929226997331814, longitude: 101.63277088650862
         },
         {
           id: 18,
@@ -231,6 +252,7 @@ export default {
           formUrls: [
             { id: 18, url: 'https://forms.gle/YaevGxHXGB1gYHL99' },
           ],
+          latitude: 3.05032462984594, longitude: 101.6709347088716
         },
         {
           id: 19,
@@ -242,6 +264,7 @@ export default {
           formUrls: [
             { id: 19, url: 'https://forms.gle/h2N6j7djBRJG65Gk7' },
           ],
+          latitude: 3.06743561256955, longitude: 101.60381954232759
         },
         {
           id: 20,
@@ -253,14 +276,18 @@ export default {
           formUrls: [
             { id: 20, url: 'https://forms.gle/3pnyAvv99eYRbGSBA' },
           ],
+          latitude: 3.148298221852806, longitude: 101.6164738865086
         },
       ],
     };
   },
   computed: {
     filteredCampaigns() {
+      const searchQuery = this.searchQuery.toLowerCase();
+      const searchDate = this.searchDate;
+
       return this.campaigns.filter((campaign) => {
-        const locationMatch = campaign.location.toLowerCase().includes(this.searchQuery.toLowerCase());
+        const locationMatch = campaign.location.toLowerCase().includes(searchQuery);
         const dateMatch = !this.searchDate || (this.searchDate >= campaign.startDate && this.searchDate <= campaign.endDate);
 
         return locationMatch && dateMatch;

@@ -10,10 +10,16 @@
           <li @click="navigate('/highlight')">Highlights</li>
           <li @click="navigate('/education')">Why Blood?</li>
           <li @click="navigate('/campaign')">Campaign</li>
-          <li @click="navigate('/organization')">Create Camp</li>
+          
           <li @click="navigate('/profile')">Profile</li>
-          <li v-if="isLoggedIn" @click="logOut">Sign Out</li>
+          
         </ul>
+        <div style="position: absolute; width: 100%; bottom: 0;">
+          <ul>
+            <li @click="navigate('/organization')" style="border-top: 1px solid #ccc; ">Create Camp</li>
+            <li v-if="isLoggedIn" @click="logOut" style="border-bottom: none; ">Sign Out</li>
+          </ul>
+        </div>
       </div>
 </template>
   

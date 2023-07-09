@@ -1,6 +1,5 @@
 <template>
   <div class="camptest">
-    <br>
     <h1 class="title">Discover</h1>
     <MapTest :filteredCampaigns="filteredCampaigns" /><br>
     <input class="search" type="text" v-model="searchQuery" placeholder=" Search by location" />

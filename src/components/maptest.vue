@@ -20,7 +20,7 @@
       ];
   
       const initMap = () => {
-        const center = { lat: 37.7749, lng: -122.4194 }; // Default center coordinates
+        const center = { lat: 3.06484594571016, lng: 101.61692563544386 }; // Default center coordinates
   
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(

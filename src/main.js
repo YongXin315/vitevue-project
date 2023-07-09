@@ -13,6 +13,7 @@ import Organization from './components/Organization.vue';
 import Discover from './components/Discover.vue';
 import Contact from './components/Contact.vue';
 import Profile from './components/Profile.vue';
+import Announcement from './components/Announcement.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -35,6 +36,7 @@ const router = createRouter({
       { path: '/campaign', component: Campaign },
       { path: '/education/faq/contact', component: Contact },
       { path: '/profile', component: Profile },
+      { path: '/announcement', component: Announcement },
     ]
   });
 

@@ -1,12 +1,13 @@
 <template>
   <form @submit.prevent="signUp" class="signup">
+    <img :src="imagePaths.appicon" alt="community logo" width="50"><br><br>
     <div class="signupform">
       <input type="text" class="input" placeholder="Name" required v-model="username" style="border-radius: 10px;"><br>
       <input type="email" class="input" placeholder="Email" required v-model="email" style="border-radius: 10px;"><br>
       <input type="password" class="input" placeholder="Password" required v-model="password"
         style="border-radius: 10px;"><br>
       <div class="phone-input">
-        <select v-model="countryCode" class="input" type="countryCode" style="border-radius: 10px; width:50px; " required>
+        <select v-model="countryCode" class="input" type="countryCode" style="border-radius: 10px; width:60px; margin-right: 8px;" required>
           <option value="+60">+60</option>
           <option value="+65">+65</option>
           <option value="+62">+62</option>
@@ -16,20 +17,16 @@
           <option value="+91">+91</option>
         </select>
         <input type="tel" class="input" placeholder="Phone Number" required v-model="phone"
-          style="border-radius: 10px; width:110px">
+          style="border-radius: 10px; width:100px">
       </div>
-
       <div class="text">
-        <span style='font-size:15px;'>DOB: </span>
-
+        <span style='font-size:15px;'>DOB:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <input type="date" class="input" placeholder="Date of Birth" required v-model="dob"
           style="border-radius: 10px;"><br>
       </div>
-      <div>
-     
+      <div style="margin: 10px 0;">
         <input type="radio" id="male" value="Male" v-model="gender">
         <label for="male" style="font-size: 14px;"> Male</label> &nbsp; &nbsp;
-
         <input type="radio" id="female" value="Female" v-model="gender">
         <label for="female" style="font-size:14px;"> Female</label>
       </div>
@@ -38,7 +35,7 @@
     </div>
   </form>
 
-  <div v-if="notification" class="notification">
+  <div v-if="notification" class="signup-notification">
     {{ notification }}
   </div>
 </template>
@@ -47,7 +44,7 @@
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { getFirestore, doc, setDoc } from 'firebase/firestore'
 import { auth } from '../firebase/init.js'
-
+import appicon from '../assets/appicon.png';
 
 export default {
 
@@ -61,7 +58,10 @@ export default {
       phone: '',
       gender: '',
       dob: '',
-      notification: ''
+      notification: '',
+      imagePaths: {
+      appicon: appicon,
+      }
     }
   },
   methods: {
@@ -120,32 +120,42 @@ export default {
 
 <style>
 .signup {
-  text-align: center;
-  padding: 10px;
+text-align: center;
+padding: 10px;
 }
 
-.input {
-  margin-bottom: 10px;
-  padding: 5px;
+.signup .input {
+box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+border: 1px solid white;
+height: 28px;
+padding: 5px;
+margin-bottom: 10px;
+resize: none;
+font-size: small;
+border-radius: 6px;
+background-color: white;
 }
 
-.input::placeholder {
-  font-family: Arial, Helvetica, sans-serif;
+.signup .input::placeholder {
+font-family: Arial, Helvetica, sans-serif;
 }
 
-.signupbut {
-  border-radius: 10px;
-  padding: 5px;
-  border: 1px solid transparent;
-  width: 155px;
+.signup .signupbut {
+border-radius: 10px;
+padding:5px;
+border:1px solid transparent;
+width:150px;
+color: white;
+font-weight: bold;
+background-color: #e74c3c;
+margin-top: 5px;
 }
 
-.notification {
-  background-color: #e74c3c;
-  text-align: center;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.signup-notification {
+color: #e74c3c;
+padding: 10px;
+border-radius: 5px;
+font-size: small;
+margin-bottom: 10px;
 }
 </style>

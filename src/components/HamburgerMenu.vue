@@ -10,9 +10,7 @@
           <li @click="navigate('/highlight')">Highlights</li>
           <li @click="navigate('/education')">Why Blood?</li>
           <li @click="navigate('/campaign')">Campaign</li>
-          
           <li @click="navigate('/profile')">Profile</li>
-          
         </ul>
         <div style="position: absolute; width: 100%; bottom: 0;">
           <ul>

@@ -1,12 +1,12 @@
 <template>
   <form @submit.prevent="login" class="login">
     <img :src="imagePaths.appicon" alt="community logo" width="50"><br><br>
-    <input type="email"  class="input"  placeholder="What's your email?" required v-model="email" style="border-radius: 10px;"><br>
+    <input type="email" class="input" placeholder="What's your email?" required v-model="email" style="border-radius: 10px;"><br>
     <input type="password" class="input" placeholder="Password" required v-model="password" style="border-radius: 10px;"><br>
-    <button class="loginbut" style="font-weight:bold;">Log in</button>
+    <button class="loginbut">Log in</button>
   </form>
 
-  <div v-if="notification" class="notification">
+  <div v-if="notification" class="login-notification">
     {{ notification }}
   </div>
 
@@ -18,12 +18,11 @@ import { auth } from '../firebase/init.js'
 import appicon from '../assets/appicon.png';
 
 export default {
-  
   data() {
     return {
       email: '',
       password: '',
-      notification: '',
+      notification:'',
       imagePaths: {
       appicon: appicon,
       }
@@ -48,7 +47,6 @@ export default {
           console.error('Login error:', error);
         }
     });
-     
   }
   }
 };
@@ -59,17 +57,32 @@ export default {
 text-align:center;
 padding:10px;
 }
-.loginbut{
+.login input {
+box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+border: 1px solid white;
+height: 28px;
+padding: 5px;
+margin-bottom: 10px;
+resize: none;
+font-size: small;
+border-radius: 6px;
+background-color: white;
+}
+.login .loginbut{
 border-radius: 10px;
 padding:5px;
 border:1px solid transparent;
-width:155px;
+width:150px;
+color: white;
+font-weight: bold;
+background-color: #e74c3c;
+margin-top: 5px;
 }
-.notification {
-  background-color: #e74c3c;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.login-notification {
+color: #e74c3c;
+padding: 10px;
+border-radius: 5px;
+font-size: small;
+margin-bottom: 10px;
 }
 </style>

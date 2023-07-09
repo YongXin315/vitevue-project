@@ -1,6 +1,5 @@
 <template>
     <div class="profile">
-        
         <div v-if="user">
             <h2>Profile
                 <span style="float: right;">

@@ -7,16 +7,16 @@
 </script>
 
 <template>
-  <div v-if="!isLoggedIn">
+  <div v-if="!isLoggedIn" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     <!-- login -->
     <template v-if="showLogin">
       <login-form @loggedIn="logInOrSignUp" class="login"/>
-      <p style="text-align: center;">No account yet? <span @click="showLogin=false" style="font-weight: bold; text-decoration: underline;">Sign Up</span> instead.</p>
+      <p style="text-align: center; font-size: small;">No account yet? <span @click="showLogin=false" style="font-weight: bold; text-decoration: underline;">Sign Up</span> instead.</p>
     </template>
     <!-- or register -->
     <template v-else>
       <signup-form @loggedIn="logInOrSignUp" class="signup"/>
-      <p style="text-align:center;">Already registered? <span @click="showLogin=true" style="font-weight: bold; text-decoration: underline;">Login</span> instead.</p>
+      <p style="text-align:center; font-size: small;">Already registered? <span @click="showLogin=true" style="font-weight: bold; text-decoration: underline;">Login</span> instead.</p>
     </template>
   </div>
   <!-- is logged in -->

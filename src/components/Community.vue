@@ -19,7 +19,7 @@
                 <button class="close-button" @click="closeNotice"><i class="fa fa-close" style="font-size: 20px; color: white;"></i></button><br><br>
                 <img :src="imagePaths.congrats" alt="Congrats Icon" style="height: 50px;">
                 <h1 style="font-weight:bold; font-size:15px;">Over 1 Million in funding for our local bank!</h1>
-                <p style="font-size: smaller; text-align: justify; padding: 20px; margin: 0;">
+                <p style="font-size: smaller; text-align: justify; text-align-last: center; padding: 20px; margin: 0;">
                   <b>Dear community members,</b><br>
                   Thanks to your incredible support, we have surpassed a monumental milestone - over $1 million in funding
                   for our local blood bank! Your generosity has directly impacted lives, providing life-saving blood

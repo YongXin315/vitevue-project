@@ -64,5 +64,7 @@ font-size: medium;
 }
 .announcement p {
 font-size: small;
+text-align: justify;
+text-align-last: center;
 }
 </style>

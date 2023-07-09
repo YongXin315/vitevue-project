@@ -4,30 +4,60 @@
     <MapTest :filteredCampaigns="filteredCampaigns" /><br>
     <input class="search" type="text" v-model="searchQuery" placeholder=" Search by location" />
     <input class="date" type="date" v-model="searchDate" />
-    <button class="button" @click="toggleSortOrder">
-      <i :class="sortOrder === 'asc' ? 'fa fa-sort-amount-asc' : 'fa fa-sort-amount-desc'"></i>  
-    </button>
-
-    <ul v-if="paginatedCampaigns.length > 0">
+    <div style="float: right;">
+      <button class="button" @click="toggleSortOrder">
+        <i :class="sortOrder === 'asc' ? 'fa fa-sort-amount-asc' : 'fa fa-sort-amount-desc'"></i>  
+      </button>
+      <button class="button" v-if="!showFavorites" @click="toggleFavoritesView"><i class='fas fa-heart'></i></button>
+    </div>
+    
+    <ul v-if="paginatedCampaigns.length > 0 && !showFavorites">
       <li v-for="campaign in paginatedCampaigns" :key="campaign.id">
           <h3>{{ campaign.name }}</h3>
           <p class="camporganizer">by {{ campaign.description }}</p>
           <p><span class="data">Address</span><br> {{ campaign.location }}</p>
           <p><span class="data">Date</span><br> {{ campaign.startDate }} to {{ campaign.endDate }}</p>
           <div style="width: 100%; text-align: right; margin-bottom: 3px;">
+            <button style="margin-right: 10px; background-color: transparent;" @click="toggleFavorite(campaign)">
+              <i :class="campaign.isFavorite ? 'fas fa-heart' : 'far fa-heart'" style="font-size: large; color: #e74c3c;"></i>
+            </button>
             <a v-for="formUrl in campaign.formUrls" :key="formUrl.id" class="register" :href="formUrl.url" target="_blank">Register</a>
           </div>
       </li>
     </ul>
-    <div v-else style="margin-top: 20px; margin-bottom: 20px; color: grey; text-align: center; font-size: small;">
-      <i class="fa fa-search" style="font-size: 35px;"></i><br>
-      No results found.
+
+    <div v-if="showFavorites">
+      <h2 style="font-size: medium;">Your Favorite Campaigns</h2>
+      <ul v-if="favorites.length > 0">
+        <li v-for="favorite in favorites" :key="favorite.id">
+          <h3>{{ favorite.name }}</h3>
+          <p class="camporganizer">by {{ favorite.description }}</p>
+          <p><span class="data">Address</span><br> {{ favorite.location }}</p>
+          <p><span class="data">Date</span><br> {{ favorite.startDate }} to {{ favorite.endDate }}</p>
+          <div style="width: 100%; text-align: right; margin-bottom: 3px;">
+            <a v-for="formUrl in favorite.formUrls" :key="formUrl.id" class="register" :href="formUrl.url" target="_blank">Register</a>
+          </div>
+        </li>
+      </ul>
+      <div v-else style="margin-top: 20px; margin-bottom: 20px; color: grey; text-align: center; font-size: small;">
+        No favorite campaigns found.
+      </div>
+      <div style="text-align: center; margin-bottom: 20px;">
+        <button class="button" style="font-size: small;" @click="toggleFavoritesView">Back to Campaign List</button>
+      </div>
     </div>
 
-    <div class="pagination">
-      <button @click="goToPreviousPage" :disabled="currentPage === 1"><i class="fa fa-angle-left"></i></button>
-      <span>{{ currentPage }}</span>
-      <button @click="goToNextPage" :disabled="currentPage === totalPages"><i class="fa fa-angle-right"></i></button>    
+    <div v-else>
+      <div v-if="filteredCampaigns.length === 0" style="margin-top: 20px; margin-bottom: 20px; color: grey; text-align: center; font-size: small;">
+        <i class="fa fa-search" style="font-size: 35px;"></i><br>
+        No results found.
+      </div>
+
+      <div class="pagination" v-if="filteredCampaigns.length > 0">
+        <button @click="goToPreviousPage" :disabled="currentPage === 1"><i class="fa fa-angle-left"></i></button>
+        <span>{{ currentPage }}</span>
+        <button @click="goToNextPage" :disabled="currentPage === totalPages"><i class="fa fa-angle-right"></i></button>    
+      </div>
     </div>
   </div>
 </template>
@@ -43,6 +73,8 @@ export default {
       sortOrder: 'asc',
       currentPage: 1,
       pageSize: 8,
+      favorites: [],
+      showFavorites: false,
       campaigns: [
         {
           id: 1,
@@ -333,6 +365,20 @@ export default {
         this.currentPage++;
       }
     },
+    toggleFavorite(campaign) {
+      campaign.isFavorite = !campaign.isFavorite;
+      if (campaign.isFavorite) {
+        this.favorites.push(campaign);
+      } else {
+        const index = this.favorites.findIndex(item => item.id === campaign.id);
+        if (index !== -1) {
+          this.favorites.splice(index, 1);
+        }
+      }
+    },
+    toggleFavoritesView() {
+      this.showFavorites = !this.showFavorites;
+    },
   },
 };
 </script>
@@ -357,7 +403,6 @@ border-radius: 7px;
 height: 40px;
 }
 .camptest .button {
-float: right;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 border: 1px solid white;
 border-radius: 7px;

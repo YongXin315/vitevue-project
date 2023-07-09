@@ -3,11 +3,12 @@
     <h2 class="welcome">Welcome, {{ displayName }}</h2>
     <h1 class="">Welcome to the Blood Donation Community</h1>
     <p class="description">
-      This app is dedicated to promoting blood donation<br>and raising awareness about its importance in saving lives.
+      Promote blood donation and save lives
     </p>
     <p class="join">
-      Together, we can make a difference and help those in need.<br>Join us in the noble cause of donating blood!
+      Join us in the noble cause of donating blood!
     </p>
+    <img :src="imagePaths.poster" alt="Welcome Poster" style="width: 100%">
     <Community />
 
     <table style="width: 100%">
@@ -92,6 +93,7 @@ import privileges from '../assets/perks-privilege.png';
 import faqicon from '../assets/faq-icon.png';
 import searchIcon from '../assets/home-search.png';
 import eduIcon from '../assets/home-edu.png';
+import poster from '../assets/home-com.png';
 
 export default {
     components: { Community },
@@ -133,6 +135,7 @@ export default {
           faqicon: faqicon,
           eduIcon: eduIcon,
           searchIcon: searchIcon,
+          poster: poster,
         },
       }
     }
@@ -140,17 +143,9 @@ export default {
 </script>
 
 <style>
-.homecomm .description {
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-  color: #ffa07a;
-  text-align: center;
-}
-.homecomm .join {
-  font-size: 1.3rem;
-  color: #f08080;
-  text-align: center;
-  font-weight: bold;
+.homecomm .description, .homecomm .join {
+font-size: 1.3rem;
+text-align: center;
 }
 .homecomm .createcamp {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

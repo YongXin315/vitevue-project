@@ -96,6 +96,7 @@ padding: 10px;
 border-bottom: 1px solid #ccc;
 transition: background-color 0.3s ease;
 cursor: pointer;
+font-size: small;
 }
 li:hover {
 background-color: #d6d6d6;

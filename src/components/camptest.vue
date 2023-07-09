@@ -3,11 +3,13 @@
     <h1 class="title">Discover</h1>
     <MapTest :filteredCampaigns="filteredCampaigns" /><br>
     <input class="search" type="text" v-model="searchQuery" placeholder=" Search by location" />
-    <label><i class="fa fa-filter"></i>&nbsp;&nbsp;</label>
     <input class="date" type="date" v-model="searchDate" />
+    <button class="button" @click="toggleSortOrder">
+      <i :class="sortOrder === 'asc' ? 'fa fa-sort-amount-asc' : 'fa fa-sort-amount-desc'"></i>  
+    </button>
 
-    <ul v-if="filteredCampaigns.length > 0">
-      <li v-for="campaign in filteredCampaigns" :key="campaign.id">
+    <ul v-if="paginatedCampaigns.length > 0">
+      <li v-for="campaign in paginatedCampaigns" :key="campaign.id">
           <h3>{{ campaign.name }}</h3>
           <p class="camporganizer">by {{ campaign.description }}</p>
           <p><span class="data">Address</span><br> {{ campaign.location }}</p>
@@ -21,6 +23,12 @@
       <i class="fa fa-search" style="font-size: 35px;"></i><br>
       No results found.
     </div>
+
+    <div class="pagination">
+      <button @click="goToPreviousPage" :disabled="currentPage === 1"><i class="fa fa-angle-left"></i></button>
+      <span>{{ currentPage }}</span>
+      <button @click="goToNextPage" :disabled="currentPage === totalPages"><i class="fa fa-angle-right"></i></button>    
+    </div>
   </div>
 </template>
 
@@ -32,6 +40,9 @@ export default {
     return {
       searchQuery: '',
       searchDate: '',
+      sortOrder: 'asc',
+      currentPage: 1,
+      pageSize: 8,
       campaigns: [
         {
           id: 1,
@@ -284,13 +295,43 @@ export default {
     filteredCampaigns() {
       const searchQuery = this.searchQuery.toLowerCase();
       const searchDate = this.searchDate;
-
       return this.campaigns.filter((campaign) => {
         const locationMatch = campaign.location.toLowerCase().includes(searchQuery);
         const dateMatch = !this.searchDate || (this.searchDate >= campaign.startDate && this.searchDate <= campaign.endDate);
-
         return locationMatch && dateMatch;
       });
+    },
+    sortedCampaigns() {
+      return this.filteredCampaigns.sort((a, b) => {
+        if (this.sortOrder === 'asc') {
+          return new Date(a.startDate) - new Date(b.startDate);
+        } else {
+          return new Date(b.startDate) - new Date(a.startDate);
+        }
+      });
+    },
+    paginatedCampaigns() {
+      const startIndex = (this.currentPage - 1) * this.pageSize;
+      const endIndex = startIndex + this.pageSize;
+      return this.sortedCampaigns.slice(startIndex, endIndex);
+    },
+    totalPages() {
+      return Math.ceil(this.filteredCampaigns.length / this.pageSize);
+    },
+  },
+  methods: {
+    toggleSortOrder() {
+      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    },
+    goToPreviousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+    goToNextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
     },
   },
 };
@@ -305,7 +346,7 @@ width: 100%;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 border: 1px solid white;
 border-radius: 7px;
-height: 30px;
+height: 40px;
 width: 99%;
 margin-bottom: 7px;
 }
@@ -313,7 +354,15 @@ margin-bottom: 7px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 border: 1px solid white;
 border-radius: 7px;
-height: 30px;
+height: 40px;
+}
+.camptest .button {
+float: right;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+border: 1px solid white;
+border-radius: 7px;
+margin: 0 0 0 5px;
+background-color: white;
 }
 .camptest ul {
 padding-top: 0;;
@@ -357,8 +406,11 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 font-size: small;
 font-weight: bold;
 }
-.title {
+.camptest .title {
 font-size: medium;
+}
+.camptest .pagination {
+text-align: center;
 }
 </style>
   

@@ -20,7 +20,7 @@
           style="border-radius: 10px; width:95px">
       </div>
       <div class="text">
-        <span style='font-size:15px;'>DOB:&nbsp;&nbsp;&nbsp;</span>
+        <span style='font-size:15px;'>DOB&nbsp;&nbsp;</span>
         <input type="date" class="input" placeholder="Date of Birth" required v-model="dob"
           style="border-radius: 10px;"><br>
       </div>

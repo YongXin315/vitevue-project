@@ -2,7 +2,6 @@
   import SignupForm from './components/SignupForm.vue'
   import LoginForm from './components/LoginForm.vue'
   import { RouterLink } from 'vue-router'
-  //import GoogleMap from './components/GoogleMap.vue'
   import HamburgerMenu from './components/HamburgerMenu.vue'
 </script>
 
@@ -22,15 +21,13 @@
   <!-- is logged in -->
   <div v-else>
     <div>
-      <div style="z-index: 999; position: fixed; height:50px; width: 100%; background-color: red;">
+      <div style="z-index: 999; position: fixed; height:50px; width: 100%; background-color: #e74c3c;">
         &nbsp;
       </div>
     </div>
     <div id="app1">
       <router-view :displayName="displayName"></router-view>
       <HamburgerMenu :isLoggedIn="isLoggedIn" @logOut="logOut" />
-      <!--<Discover /><GoogleMap /><Organization /><Maptest /><Campaign /><Education /><Home />
-      -->
     </div>
   </div>
 </template>

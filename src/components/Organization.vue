@@ -10,52 +10,52 @@
     <form @submit.prevent="submitForm" class="form">
         <label for="name">Hospital Name:</label>
         <input type="text" placeholder="Hospital Name" id="name" v-model="name" required>
-
+        <br>
         <label for="phone">Phone:</label>
         <input type="tel" placeholder="Phone" id="phone" v-model="phone" required>
-
+        <br>
         <label for="email">Email:</label>
         <input type="email" placeholder="Email" id="email" v-model="email" required>
         <small>example@example.com</small>
-
+        <br>
         <p style="font-weight:bold; margin: 0;">Location</p>
         <label for="street">Street:</label>
         <input type="text" placeholder="Street" id="street" v-model="street" required>
-
+        <br>
         <label for="city">City:</label>
         <input type="text" placeholder="City" id="city" v-model="city" required>
-
+        <br>
         <label for="state">State:</label>
         <input type="text" placeholder="State" id="state" v-model="state" required>
-
+        <br>
         <label for="postalCode">Postal Code:</label>
         <input type="text" placeholder="Postal Code" id="postalCode" v-model="postalcode" required>
-
+        <br>
         <label for="message">Message:</label>
         <textarea id="message" placeholder="Leave your message here.." v-model="message"></textarea>
-
+        <br>
         <p style="font-weight:bold; margin: 0;">Campaign</p>
         <label for="campname">Camp Name:</label>
         <input type="text" placeholder="Camp Name" id="campname" v-model="campname" required>
-
+        <br>
         <label for="info">Camp Information:</label>
         <input type="text" placeholder="Camp Information" id="info" v-model="info" required>
-
+        <br>
         <label for="startDate">Start Date of the Campaign:</label>
         <input type="date" id="startDate" v-model="startDate" required>
-
+        <br>
         <label for="endDate">End Date of the Campaign:</label>
         <input type="date" id="endDate" v-model="endDate" required>
-
+        <br>
         <label for="time1">Time Start:</label>
         <input type="time" id="time1" v-model="time1" required>
-
+        <br>
         <label for="time2">Time End:</label>
         <input type="time" id="time2" v-model="time2" required>
-
+        <br>
         <label for="venue">Campaign Venue:</label>
         <input type="text" placeholder="Full address" id="venue" v-model="venue" required>
-
+        <br>
         <div class="button">
           <button type="submit" id="submit">Submit</button>
         </div>
@@ -65,7 +65,7 @@
 </template>
 
 
-  <script>
+<script>
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 export default {

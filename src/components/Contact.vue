@@ -136,7 +136,7 @@ text-align: center;
 }
 .contact button {
 width: 50%;
-background-color: red;
+background-color: #e74c3c;
 color: #fff;
 margin-top: 10px;
 padding: 10px 25px;

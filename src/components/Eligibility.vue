@@ -105,7 +105,7 @@ padding: 10px 20px;
 .eli-table .type {
 font-weight: bold;
 margin: 0;
-color: red;
+color: #e74c3c;
 }
 .eli-table .eli {
 font-weight: bold;

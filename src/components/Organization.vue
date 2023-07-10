@@ -204,7 +204,7 @@ text-align: center;
 }
 .organization button {
 width: 50%;
-background-color: red;
+background-color: #e74c3c;
 color: #fff;
 margin-top: 10px;
 padding: 10px 25px;

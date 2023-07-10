@@ -1,7 +1,7 @@
 <template>
   <div class="camptest">
     <h1 class="title">Discover</h1>
-    <MapTest :filteredCampaigns="filteredCampaigns" /><br>
+    <MapTest :filteredCampaigns="filteredCampaigns" :searchQuery="searchQuery" /><br>
     <input class="search" type="text" v-model="searchQuery" placeholder=" Search by location" />
     <input class="date" type="date" v-model="searchDate" />
     <div style="float: right;">
@@ -443,7 +443,7 @@ color: rgb(128, 128, 128);
 font-weight: normal;
 }
 .camptest .register {
-background-color: red;
+background-color: #e74c3c;
 padding: 6px 20px;
 color: white;
 border-radius: 7px;

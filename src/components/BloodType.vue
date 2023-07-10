@@ -78,7 +78,7 @@ padding: 8px;
 text-align: center;
 }
 .bloodtype-table th {
-background-color: red;
+background-color: #e74c3c;
 color: white;
 font-weight: bold;
 }

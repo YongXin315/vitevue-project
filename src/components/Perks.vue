@@ -76,7 +76,7 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .perks-table th {
-  background-color: red;
+  background-color: #e74c3c;
   color: white;
   font-weight: bold;
   text-align: left;

@@ -326,7 +326,7 @@ font-size: smaller;
 
 .campaign .day {
 color: #fff;
-background-color: red;
+background-color: #e74c3c;
 padding: 5px;
 border-radius: 5px;
 width: 45%;

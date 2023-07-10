@@ -23,7 +23,7 @@
         <div>
           <p style="font-size: small; padding: 0 35px; color: grey;">
             <i class="fa fa-search" style="font-size: 35px;"></i><br>Could not find your questions?<br>
-          Send us your questions at <span style="color: red;" @click="goToContact">HERE</span>.</p>
+          Send us your questions at <span style="color: #e74c3c;" @click="goToContact">HERE</span>.</p>
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@ font-size: 20px;
 padding-left: 5px;
 }
 .faq .title.open {
-color: red;
+color: #e74c3c;
 }
 .faq .title {
 padding: 6px 10px;

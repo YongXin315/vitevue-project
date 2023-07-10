@@ -14,6 +14,10 @@ export default {
       type: Array,
       required: true,
     },
+    searchQuery: {
+      type: String,
+      required: true,
+    },
   },
   setup(props) {
     const map = ref(null);
@@ -50,43 +54,58 @@ export default {
     };
 
     const updateMarkers = () => {
-      markers.value.forEach((marker) => {
-        marker.setMap(null);
-      });
+  if (!map.value) {
+    return; // Return early if the map is not yet initialized
+  }
 
-      markers.value = [];
+  markers.value.forEach((marker) => {
+    marker.setMap(null);
+  });
 
-      props.filteredCampaigns.forEach((campaign) => {
-        const infoWindow = new google.maps.InfoWindow({
-          content: `<h3>${campaign.name}</h3><p>Date: ${campaign.startDate} to ${campaign.endDate}</p>`,
-        });
+  markers.value = [];
 
-        const position = new google.maps.LatLng(campaign.latitude, campaign.longitude);
+  const filteredCampaigns = props.filteredCampaigns.filter((campaign) =>
+    campaign.location.toLowerCase().includes(props.searchQuery.toLowerCase())
+  );
 
-        const googleMarker = new google.maps.Marker({
-          position: position,
-          map: map.value,
-        });
+  filteredCampaigns.forEach((campaign) => {
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<h3>${campaign.name}</h3><p>Date: ${campaign.startDate} to ${campaign.endDate}</p>`,
+    });
 
-        googleMarker.addListener('click', () => {
-          infoWindow.open(map.value, googleMarker);
-        });
+    const position = new google.maps.LatLng(campaign.latitude, campaign.longitude);
 
-        markers.value.push(googleMarker);
-      });
-    };
+    const googleMarker = new google.maps.Marker({
+      position: position,
+      map: map.value,
+    });
+
+    googleMarker.addListener('click', () => {
+      infoWindow.open(map.value, googleMarker);
+    });
+
+    markers.value.push(googleMarker);
+  });
+};
+
 
     onMounted(() => {
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBWddpINsAJJplhhkUxmc_qvenPkKVaQKY&callback=initMap`;      script.defer = true;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBWddpINsAJJplhhkUxmc_qvenPkKVaQKY&callback=initMap`;
+      script.defer = true;
       script.async = true;
       window.initMap = initMap;
       document.head.appendChild(script);
     });
 
-    watch(props.filteredCampaigns, () => {
-      updateMarkers();
-    });
+
+    watch(
+      () => [props.filteredCampaigns, props.searchQuery],
+      () => {
+        updateMarkers();
+      },
+      { deep: true }
+    );
 
     return { map };
   },

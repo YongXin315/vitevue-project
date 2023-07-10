@@ -1,14 +1,7 @@
 <template>
   <div class="homecomm">
     <h2 class="welcome">Welcome, {{ displayName }}</h2>
-    <h1 class="">Welcome to the Blood Donation Community</h1>
-    <p class="description">
-      Promote blood donation and save lives
-    </p>
-    <p class="join">
-      Join us in the noble cause of donating blood!
-    </p>
-    <img :src="imagePaths.poster" alt="Welcome Poster" style="width: 100%">
+    <img :src="imagePaths.poster" alt="Welcome Poster" style="width: 100%; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
     <Community />
 
     <table style="width: 100%">
@@ -143,10 +136,6 @@ export default {
 </script>
 
 <style>
-.homecomm .description, .homecomm .join {
-font-size: 1.3rem;
-text-align: center;
-}
 .homecomm .createcamp {
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 line-height: normal;
@@ -205,6 +194,7 @@ text-decoration: underline;
 }
 .homecomm .welcome {
 text-align: left;
+font-size: medium;
 }
 .homeedu .content {
 background-color: white;

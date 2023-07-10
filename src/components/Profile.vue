@@ -66,59 +66,45 @@
             </table>
             <br>
             <table class="table" style='width:100%;'>
-                <colgroup>
-                    <col style="width:50%;">
-                    <col style="width:50%;">
-                </colgroup>
                 <tr>
-                    <th colspan="2" style="text-align:left;">Health Records
+                    <th style="text-align:left;">Health Records
                     </th>
                 </tr>
                 <tr>
-                    <th style='width:50%;'>Blood Type</th>
-                    <th style='width:"50%;'>Weight</th>
+                    <th>Weight</th>
                 </tr>
                 <tr v-if="editing">
-                    <td style='text-align:center;'>
-                        <select v-model="editedUser.bloodtypes" style="width:25%;">
-                            <option value="Please select" selected disabled>Please select</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                        </select>
-                    </td>
-                    <td style='text-align:center;'>
-                        <input type="number" style="width:25%;" v-model="editedUser.weight">
+                    <td>
+                        <input type="number" v-model="editedUser.weight">
                     </td>
                 </tr>
                 <tr v-else>
-                    <td style='text-align:center;'> <span>{{ user.bloodtypes }}</span>
-                    </td>
-                    <td style='text-align: center;'>
+                    <td>
                         <span>{{ user.weight }} kg</span>
                     </td>
                 </tr>
                 <tr>
-                    <th style='width:50%;'>Height</th>
-                    <th style='width:50%;'>BMI</th>
+                    <th>Height</th>
                 </tr>
                 <tr v-if="editing">
-                    <td style='text-align:center;'>
-                        <input type="number" style="width:25%;" v-model="editedUser.height">
+                    <td>
+                        <input type="number" v-model="editedUser.height">
                     </td>
-                    <td style='text-align:center;'>
+                </tr>
+                <tr v-else>
+                    <td><span>{{ user.height }} cm</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>BMI</th>
+                </tr>
+                <tr v-if="editing">
+                    <td>
                         <span>{{ calculatedBmi }}</span>
                     </td>
                 </tr>
                 <tr v-else>
-                    <td style='text-align:center;'> <span>{{ user.height }} cm</span>
-                    </td>
-                    <td style='text-align: center;'>
+                    <td>
                         <span>{{ user.calculatedBmi }}</span>
                     </td>
                 </tr>

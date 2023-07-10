@@ -59,6 +59,7 @@
         <div class="button">
           <button type="submit" id="submit">Submit</button>
         </div>
+        <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
     </form>
   </div>
   </div>
@@ -86,6 +87,7 @@ export default {
       time1: '',
       time2: '',
       venue: '',
+      successMessage: '',
     };
   },
   methods: {
@@ -127,6 +129,7 @@ export default {
         this.time1 = '';
         this.time2 = '';
         this.venue = '';
+        this.successMessage = 'Form submitted successfully!';
       } catch (error) {
         console.error('Error writing document: ', error);
       }
@@ -154,6 +157,7 @@ padding: 10px 15px;
 background-color: white;
 border-radius: 10px;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+margin-bottom: 25px;
 }
 .organization .form {
 font-size: 18px;
@@ -211,5 +215,10 @@ padding: 10px 25px;
 border: none;
 cursor: pointer;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.organization .success-message {
+color: green;
+margin-top: 10px;
+text-align: center;
 }
 </style>
